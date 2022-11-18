@@ -17,7 +17,11 @@
     --color-subtext: #FF8A71;
   }
   
-  body {
+  /* body {
+    background: var(--color-bg);
+    position: fixed;
+  } */
+  body{
     background: var(--color-bg);
   }
   
@@ -43,4 +47,3 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-
