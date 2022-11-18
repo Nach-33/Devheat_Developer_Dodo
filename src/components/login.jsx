@@ -39,18 +39,18 @@ function Login() {
   return (
     <>
       <section
-        className="d-flex justify-content-center align-items-center row m-0 p-2"
+        className="justify-content-start row m-0 p-2"
         style={{
           height: "100vh",
           width: "100%",
           background: "rgb(34, 33, 35)",
         }}
       >
-        <div className="card col-md-5 p-4">
+        <div className="card col-md-6 p-4">
           <div className="row justify-content-center">
             <div className="col-md-9 d-flex flex-column align-items-start">
               <label className="form-label my-1" style={{ fontSize: "1.5rem" }}>
-                Email Address
+                Email*
               </label>
               <input
                 type="email"
