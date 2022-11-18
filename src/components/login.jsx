@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -39,50 +40,56 @@ function Login() {
   return (
     <>
       <section
-        className="justify-content-start row m-0 p-2"
+        className="justify-content-start row m-0"
         style={{
           height: "100vh",
           width: "100%",
           background: "rgb(34, 33, 35)",
         }}
       >
-        <div className="card col-md-6 p-4">
-          <div className="row justify-content-center">
-            <div className="col-md-9 d-flex flex-column align-items-start">
-              <label className="form-label my-1" style={{ fontSize: "1.5rem" }}>
-                Email*
+        <div className="col-md-6 p-4 text-light d-flex align-items-center justify-content-center" style={{backgroundColor:"#16213E"}}>
+          <div className="col-md-7">
+            <div className="col d-flex flex-column align-items-start">
+              <div className="mb-3">
+                <h1 className="fw-bold">Login</h1>
+                <p>Get Started with demo cash and start your trading journey</p>
+              </div>
+              <label className="form-label my-1" style={{ fontSize: "1.3rem" }}>
+                Email
               </label>
               <input
                 type="email"
-                className="form-control my-1"
+                className="form-control my-1 w-75"
                 id="email"
                 placeholder="Eg. abc@xyz.com"
                 onChange={emailChange}
                 value={email}
-                style={{ width: "95%" }}
               />
-              <label className="form-label my-1" style={{ fontSize: "1.5rem" }}>
+              <label className="form-label my-1" style={{ fontSize: "1.3rem" }}>
                 Password
               </label>
               <input
                 type="password"
-                className="form-control my-1"
+                className="form-control my-1 w-75"
                 id="password"
                 placeholder="Set A Password"
                 onChange={passwordChange}
                 value={password}
-                style={{ width: "95%" }}
               />
-              <div className="row w-100 justify-content-center mt-4 mb-3 mx-0">
+              <div className="row w-100 justify-content-start mt-4 mb-3 mx-0">
                 <div
-                  className="btn btn-outline-primary col-md-6 my-1 p-2 rounded-pill"
+                  className="btn btn-outline-primary my-1 p-2 rounded-pill w-75"
                   onClick={loginClick}
                 >
                   Login
                 </div>
               </div>
+              <p>Not Registered Yet? <Link to="/register" className="text-primary">Create an account</Link></p>
             </div>
           </div>
+        </div>
+        <div className="col-md-6  p-4" >
+
         </div>
       </section>
     </>
