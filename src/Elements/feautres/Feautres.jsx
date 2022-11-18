@@ -21,7 +21,7 @@ const featuresData = [
 ];
 
 const Features = () => (
-  <div className="features section__padding" id="features">
+  <div className="features section__padding pb-5 px-5" id="features ">
     <div className="features-heading">
       <h1 className="gradient__text">The Future is Now and You Just Need to Realize It. Step into Future Today. & Make it Happen.</h1>
       <p>Request Early Access to Get Started</p>

@@ -16,8 +16,9 @@ import './Css/header.css'
 import './Css/navbar.css'
 import './Css/feature.css'
 import './Css/features.css'
-
-
+import './Css/cta.css'
+import './Css/blog.css'
+import './Css/article.css'
 
 function App() {
   return (
