@@ -19,6 +19,7 @@ import './Css/features.css'
 import './Css/cta.css'
 import './Css/blog.css'
 import './Css/article.css'
+import './Css/register.css'
 
 function App() {
   return (
