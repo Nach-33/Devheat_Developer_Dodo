@@ -13,7 +13,6 @@ import Register from './components/register';
 import './Elements/Navbars/style/navbar.css'
 import './Elements/Headers/style/header.css'
 import Dashboard from './components/dashboard';
-
 function App() {
   return (
     <>
@@ -22,7 +21,7 @@ function App() {
       <Route exact path="/stock" element={<Stock/>} />
       <Route exact path="/" element={<Homepage />} />
       <Route exact path="/in" element={<Homepage2 />} />
-      <Route exact path="/dashboard" element={<Dashboard />} />
+      <Route exact path="/user" element={<Dashboard />} />
       <Route exact path="/buy" element={<Buy />} />
       <Route exact path="/sell" element={<Sell />} />
       <Route exact path="/login" element={<Login />} />
