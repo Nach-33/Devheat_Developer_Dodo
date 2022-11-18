@@ -58,22 +58,26 @@ function Register() {
   return (
     <>
       <section
-        className="row justify-content-center align-items-center m-0 p-2"
+        className="justify-content-start row m-0"
         style={{
           height: "100vh",
           width: "100%",
           background: "rgb(34, 33, 35)",
         }}
       >
-        <div className="card col-md-6 p-4">
-          <div className="row justify-content-center">
-            <div className="col-md-9 d-flex flex-column align-items-start">
+         <div className="col-md-6 p-4 text-light d-flex align-items-center justify-content-center" style={{backgroundColor:"#16213E"}}>
+         <div className="col-md-7">
+         <div className="col d-flex flex-column align-items-start">
+         <div className="mb-3">
+                <h1 className="fw-bold">Register</h1>
+                <p>Get Started with demo cash and start your trading journey</p>
+              </div>
               <label className="form-label my-1" style={{ fontSize: "1.5rem" }}>
                 Name
               </label>
               <input
                 type="tel"
-                className="form-control my-1"
+                className="form-control my-1 w-75"
                 id="name"
                 placeholder="Enter Your Name"
                 onChange={nameChange}
@@ -85,7 +89,7 @@ function Register() {
               </label>
               <input
                 type="email"
-                className="form-control my-1"
+                className="form-control my-1 w-75"
                 id="email"
                 placeholder="Eg. abc@xyz.com"
                 onChange={emailChange}
@@ -97,7 +101,7 @@ function Register() {
               </label>
               <input
                 type="password"
-                className="form-control my-1"
+                className="form-control my-1 w-75"
                 id="password"
                 placeholder="Set A Password"
                 onChange={passwordChange}
@@ -109,16 +113,16 @@ function Register() {
               </label>
               <input
                 type="password"
-                className="form-control my-1"
+                className="form-control my-1 w-75"
                 id="confirmPassword"
                 placeholder="Re-Enter The Password"
                 onChange={confirmPasswordChange}
                 value={confirmPassword}
                 style={{ width: "95%" }}
               />
-              <div className="row w-100 justify-content-center mt-4 mb-3 mx-0">
+              <div className="row w-100 justify-content-start mt-4 mb-3 mx-0">
                 <div
-                  className="btn btn-outline-primary col-md-6 my-1 p-2 rounded-pill"
+                  className="btn btn-outline-primary my-1 p-2 rounded-pill w-75"
                   onClick={registerClick}
                 >
                   Sign-Up
@@ -127,6 +131,9 @@ function Register() {
             </div>
           </div>
         </div>
+        <div className="col-md-6  p-4" >
+
+</div>
       </section>
     </>
   );
