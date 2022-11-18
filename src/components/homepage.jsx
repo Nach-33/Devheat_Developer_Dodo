@@ -1,7 +1,7 @@
-
 import React from "react";
 import Navbar from "../Elements/Navbars/Navbar";
 import Header from "../Elements/Headers/Header";
+import Feautres from "../Elements/feautres/Feautres";
 
 function homepage() {
   return (
@@ -10,6 +10,7 @@ function homepage() {
       <div className="gradient__bg">
       <Navbar />
       <Header />
+      <Feautres/>
       </div>
       </div>
       

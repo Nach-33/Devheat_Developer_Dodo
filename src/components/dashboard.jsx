@@ -1,6 +1,5 @@
 import React from "react";
 import "../Css/dashboard.css";
-import ProfileImg from '../resources/people.png'
 function dashboard() {
   // const allSideMenu = document.querySelectorAll("#sidebar .side-menu.top li a");
 
@@ -127,14 +126,11 @@ function dashboard() {
             </form>
             <input type="checkbox" id="switch-mode" hidden />
             <label for="switch-mode" class="switch-mode"></label>
-            <a href="#" class="profile">
-              <img src={ProfileImg} />
-            </a>
           </nav>
           {/* <!-- NAVBAR --> */}
 
           {/* <!-- MAIN --> */}
-          <main>
+          <main style={{backgroundColor : 'white'}}>
             <div class="head-title">
               <div class="left">
                 <h1>Dashboard</h1>

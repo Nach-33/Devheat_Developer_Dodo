@@ -1,5 +1,6 @@
 import React from "react";
-import StockImage from '../../resources/stock.svg'
+import StockImage from '../../Assets/stock.svg'
+
 const Header = () => (
   <div className="header section__padding" id="home">
     <div className="header-content p-5">
@@ -12,6 +13,7 @@ const Header = () => (
         quidem?
       </p>
     </div>
+
     <div className="header-image">
       <img src={StockImage} alt="" />
     </div>
