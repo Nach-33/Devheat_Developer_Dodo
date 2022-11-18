@@ -12,8 +12,10 @@ import './App.css'
 import Login from './components/login';
 import Register from './components/register';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
-import './Elements/Navbars/style/navbar.css'
-import './Elements/Headers/style/header.css'
+import './Css/header.css'
+import './Css/navbar.css'
+
+
 
 function App() {
   return (
