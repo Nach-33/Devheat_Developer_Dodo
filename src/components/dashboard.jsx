@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar_loggedin from "../Elements/Navbars/navbar_loggedin";
+import { IconName } from "react-icons/bi";
+import ProfitImg from "../Assets/Profit.svg"
+import WalletImg from "../Assets/Wallet.svg"
+import UserImg from "../Assets/User.svg"
+
 function Dashboard() {
   const [totalProfit, setTotalProfit] = React.useState(0);
   const [user, setUser] = React.useState({
@@ -47,13 +52,13 @@ function Dashboard() {
         key={index}
       >
         <div>
-          <h2>{element.stock}</h2>
+          <h2 className="text-light">{element.stock}</h2>
         </div>
         <div>
-          <h2>{element.qty}</h2>
+          <h2 className="text-light">{element.qty}</h2>
         </div>
         <div>
-          <h2>{element.price}</h2>
+          <h2 className="text-light">{element.price}</h2>
         </div>
       </div>
     );
@@ -65,16 +70,16 @@ function Dashboard() {
         key={index}
       >
         <div>
-          <h2 className="text-dark">{element.stock}</h2>
+          <h2 className="text-light">{element.stock}</h2>
         </div>
         <div>
-          <h2 className="text-dark">{element.trade}</h2>
+          <h2 className="text-light">{element.trade}</h2>
         </div>
         <div>
-          <h2 className="text-dark">{element.qty}</h2>
+          <h2 className="text-light">{element.qty}</h2>
         </div>
         <div>
-          <h2 className="text-dark">{element.price}</h2>
+          <h2 className="text-light">{element.price}</h2>
         </div>
       </div>
     );
@@ -98,13 +103,19 @@ function Dashboard() {
           <div
             className="col-md-2 d-flex flex-column justify-content-between py-2"
             id="left-panel"
+            style={{
+              background:
+                "radial-gradient(circle at 5% 23%, rgba(0, 40, 83, 1) 2%, rgba(4, 12, 24, 1) 25%)",
+            }}
           >
             <div className="py-3">
               <div className="p-2 text-center my-4 card text-dark shadow-lg">
                 <h2>Dashboard</h2>
               </div>
               <div className="p-2 text-center my-4 text-light">
-                <h2><Link to='/analysis'>Analysis</Link></h2>
+                <h2>
+                  <Link to="/analysis">Analysis</Link>
+                </h2>
               </div>
               <div className="p-2 text-center my-4 text-light">
                 <h2>Help</h2>
@@ -114,82 +125,129 @@ function Dashboard() {
           <div
             className="col-md-10 bg-secondary p-2"
             id="right-panel"
-            style={{ borderRadius: "1rem" }}
+            style={{ borderRadius: "1.3rem" }}
           >
-            <div className="d-flex justify-content-around align-items-center h-25">
-              <div className="col-md-2 card d-flex flex-row justify-content-between p-2">
+            <div className="d-flex justify-content-around align-items-center h-25 pb-1">
+              <div
+                className="col-md-2 card d-flex flex-row justify-content-between p-2"
+                style={{ borderRadius: "1rem" }}
+              >
                 <div
-                  className="col-3 bg-primary"
+                  className="col-3 "
                   style={{
                     height: "6rem",
                     width: "6rem",
                     borderRadius: "0.5rem",
                   }}
-                ></div>
+                ><img src={UserImg} alt="" /></div>
                 <div className="col-7">
-                  <h2>Hello </h2>
+                  <h2 style={{fontWeight:'bold'}}> Hello,</h2>
                   <h2>{user.username}</h2>
                 </div>
               </div>
-              <div className="col-md-2 card d-flex flex-row justify-content-between p-2">
+              <div
+                className="col-md-2 card d-flex flex-row justify-content-between p-2"
+                style={{ borderRadius: "1rem" }}
+              >
                 <div
-                  className="col-3 bg-primary"
+                  className="col-3"
                   style={{
                     height: "6rem",
                     width: "6rem",
                     borderRadius: "0.5rem",
                   }}
-                ></div>
-                <div className="col-7">
-                  <h2>Profit</h2>
+                ><img src={ProfitImg} alt="" /></div>
+                <div className="col-7 ">
+                  <h2 style={{fontWeight:'bold'}}>Profit</h2>
                   <h2>${totalProfit}</h2>
                 </div>
               </div>
-              <div className="col-md-2 card d-flex flex-row justify-content-between p-2">
+              <div
+                className="col-md-2 card d-flex flex-row justify-content-between p-2"
+                style={{ borderRadius: "1rem" }}
+              >
                 <div
-                  className="col-3 bg-success"
+                  className="col-3"
                   style={{
                     height: "6rem",
                     width: "6rem",
                     borderRadius: "0.5rem",
                   }}
-                ></div>
+                ><img src={WalletImg} alt="" /></div>
                 <div className="col-7">
-                  <h2>Balance</h2>
+                  <h2 style={{fontWeight:'bold'}}>Balance</h2>
                   <h2>${user.balance}</h2>
                 </div>
               </div>
             </div>
             <div className="d-flex h-75 justify-content-around">
-              <div className="col-md-7 bg-danger card p-2">
-                <div className="d-flex card flex-row justify-content-around p-1 m-2">
-                  <div>
+              <div
+                className="col-md-7 card p-2"
+                style={{
+                  borderRadius: "1.3rem",
+                  backgroundColor: "rgb(1, 22, 44)"
+                }}
+              >
+                <div
+                  className="d-flex card flex-row justify-content-around p-1 m-2"
+                  style={{ backgroundColor: "rgb(1, 22, 44)" }}
+                >
+                  <div
+                    style={{
+                      color:'wheat'
+                    }}
+                  >
                     <h1 className="fw-bold">Stock</h1>
                   </div>
-                  <div>
+                  <div
+                    style={{
+                      color:'wheat'
+                    }}
+                  >
                     <h1 className="fw-bold">Qty</h1>
                   </div>
-                  <div>
+                  <div
+                    style={{
+                      color:'wheat'
+                    }}
+                  >
                     <h1 className="fw-bold">Price</h1>
                   </div>
                 </div>
                 {render}
               </div>
-              <div className="col-md-4 bg-primary card">
+              <div className="col-md-4 card" style={{ borderRadius: "1.3rem",backgroundColor: "rgb(1, 22, 44)" }}>
                 <div
-                  className="d-flex card flex-row justify-content-around p-1 m-2"
+                  className="d-flex card flex-row justify-content-around p-1 m-1 "
+                  style={{ backgroundColor: "rgb(1, 22, 44)" }}
                 >
-                  <div>
-                    <h1 className="text-dark fw-bold">Stock</h1>
+                  <div
+                    style={{
+                      color:'wheat'
+                    }}
+                  >
+                    <h1 className="fw-bold">Stock</h1>
                   </div>
-                  <div>
-                    <h1 className="text-dark fw-bold">Trade</h1>
+                  <div
+                    style={{
+                      color:'wheat'
+                    }}
+                  >
+                    <h1 className="fw-bold">Trade</h1>
                   </div>
-                  <div>
-                    <h1 className="text-dark fw-bold">Qty</h1>
+                  <div
+                    style={{
+                      color:'wheat'
+                    }}
+                  >
+                    <h1 className="fw-bold">Qty</h1>
                   </div>
-                  <div>
-                    <h1 className="text-dark fw-bold">Price</h1>
+                  <div
+                    style={{
+                      color:'wheat'
+                    }}
+                  >
+                    <h1 className="fw-bold">Price</h1>
                   </div>
                 </div>
                 {historyRender}
