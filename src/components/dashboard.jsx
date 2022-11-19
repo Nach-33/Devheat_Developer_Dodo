@@ -13,7 +13,7 @@ function Dashboard() {
     transactions: [],
     balance: 0,
   });
-
+  //getting data from api to show on dashboard
   const token = localStorage.getItem("user");
   const getData = async () => {
     try {
@@ -31,6 +31,7 @@ function Dashboard() {
       console.log(error);
     }
   };
+  //calculating profit
   React.useEffect(() => {
     getData();
     let largest = 0;
@@ -45,6 +46,8 @@ function Dashboard() {
     }
     setTotalProfit(sum);
   }, [user.balance]);
+
+  //displaying portfolio
   const render = user.portfolio.map((element, index) => {
     return (
       <div
@@ -63,6 +66,7 @@ function Dashboard() {
       </div>
     );
   });
+  //displaying transaction history
   const historyRender = user.transactions.map((element, index) => {
     return (
       <div
@@ -87,13 +91,6 @@ function Dashboard() {
   return (
     <>
       <section className="m-0 p-0" style={{ height: "100vh" }}>
-        {/* <div className="d-flex m-0 p-2 justify-content-between " style={{ height: "10vh" }} id='top-d-flex'>
-          <div className="col-1">
-            <h1 className="text-center">PaperMarket</h1>
-          </div>
-          <div className="col-4 bg-primary"></div>
-          <div className="col-1 bg-success"></div>
-        </div> */}
         <Navbar_loggedin />
         <div
           className="d-flex m-0 p-1 justify-content-between"

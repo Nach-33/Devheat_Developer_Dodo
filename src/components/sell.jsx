@@ -30,7 +30,7 @@ function Sell() {
     const {value} = e.target;
     setQuantity(value);
   }
-
+  //sending information to backend whichever stocks want to sell
   const sellStock = async () => {
     try {
       const response = await fetch("http://localhost:4000/api/v1/sell", {
@@ -53,7 +53,7 @@ function Sell() {
       console.log(error);
     }
   };
-
+  //fetching data from api
   async function handleClick2(e) {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=JBQTJBWV8LLJYL6Y`
@@ -94,7 +94,7 @@ function Sell() {
   }, [data]);
 
 
-
+//checking current price
   React.useEffect(() => {
     console.log(data2);
     for (var i in data2) {
@@ -106,13 +106,6 @@ function Sell() {
     }
   }, [data2]);
 
-  React.useEffect(()=>{
-    // console.log('jaldi', user.userData.transactions);
-    // for(var i in user.userData.transactions){
-      console.log(user);
-
-    // }
-  }, [price])
 
 
 

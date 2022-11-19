@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Chart from "react-google-charts";
 import Image from "../Assets/buy.svg";
 import Navbar_loggedin from "../Elements/Navbars/navbar_loggedin";
 const moment = require("moment");
@@ -61,17 +60,6 @@ function Apitest() {
       console.log(error);
     }
   };
-  //*****************************USEEFFECTS******************************************* */
-  // React.useEffect(() => {
-  //   getData();
-  //   if (user.username == "") {
-  //     return (
-  //       <h1 className="text-center text-danger mt-4">
-  //         Not Authorized to Access this Route
-  //       </h1>
-  //     );
-  //   }
-  // }, []);
 
   //checks if market is open to buy and sell stocks
   React.useEffect(() => {
