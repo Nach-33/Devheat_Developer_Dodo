@@ -16,11 +16,6 @@
     --color-text: #81AFDD;
     --color-subtext: #FF8A71;
   }
-  
-  /* body {
-    background: var(--color-bg);
-    position: fixed;
-  } */
   body{
     background: var(--color-bg);
   }

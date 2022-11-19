@@ -1,44 +1,39 @@
-import React from "react";
-import "../Css/dashboard.css";
-import data from "./data";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 function Dashboard() {
-  const [credit,setCredit] = React.useState(0);
+  const [credit, setCredit] = React.useState(0);
   const [topGainer, setTopGainer] = React.useState(0);
-  const [portfolio,setPortfolio] = React.useState([]);
+  const [portfolio, setPortfolio] = React.useState([]);
   const [totalProfite, setTotalProfit] = React.useState(0);
   const [currentPrice, setCurrentPrice] = React.useState(10000);
-  console.log(data)
-  React.useEffect(()=>{
-    setCredit(data.userData.balance);
-    setPortfolio(data.userData.portfolio);
-  }, [])
-  React.useEffect(()=>{
+  // React.useEffect(() => {
+  //   setCredit(data.userData.balance);
+  //   setPortfolio(data.userData.portfolio);
+  // }, []);
+  React.useEffect(() => {
     var largest = 0;
     var sum = 0;
     for (let i = 0; i < portfolio.length; i++) {
-        sum = sum + (currentPrice - (portfolio[i].price * portfolio[i].qty));
-        if(currentPrice - (portfolio[i].price * portfolio[i].qty) > largest){
-          largest = currentPrice - (portfolio[i].price * portfolio[i].qty);
-        }
+      sum = sum + (currentPrice - portfolio[i].price * portfolio[i].qty);
+      if (currentPrice - portfolio[i].price * portfolio[i].qty > largest) {
+        largest = currentPrice - portfolio[i].price * portfolio[i].qty;
+      }
     }
     setTopGainer(largest);
     setTotalProfit(sum);
-  
   }, [portfolio]);
-  function handleClick(e){
-    window.location.href = 'analysis'
-    // console.log(e);
+  function handleClick(e) {
+    window.location.href = "/analysis";
   }
-  const render = portfolio.map((element, index)=>{
-    console.log(element)
-    return(
+  const render = portfolio.map((element, index) => {
+    return (
       <tr>
-        <td className='align-items-center'>
+        <td className="align-items-center">
           <p>{element.stock}</p>
         </td>
         <td>
           <p>{element.price}</p>
-          </td>
+        </td>
         <td>
           <p class="status completed">element.qty</p>
         </td>
@@ -46,229 +41,106 @@ function Dashboard() {
           <button onClick={handleClick}>Analysis</button>
         </td>
       </tr>
-    )
+    );
   });
-  // const allSideMenu = document.querySelectorAll("#sidebar .side-menu.top li a");
-  // allSideMenu.forEach((item) => {
-  //   const li = item.parentElement;
-
-  //   item.addEventListener("click", function () {
-  //     allSideMenu.forEach((i) => {
-  //       i.parentElement.classList.remove("active");
-  //     });
-  //     li.classList.add("active");
-  //   });
-  // });
-  // // TOGGLE SIDEBAR
-  // const menuBar = document.querySelector("#content nav .bx.bx-menu");
-  // const sidebar = document.getElementById("sidebar");
-
-  // menuBar.addEventListener("click", function () {
-  //   sidebar.classList.toggle("hide");
-  // });
-  // const searchButton = document.querySelector(
-  //   "#content nav form .form-input button"
-  // );
-  // const searchButtonIcon = document.querySelector(
-  //   "#content nav form .form-input button .bx"
-  // );
-  // const searchForm = document.querySelector("#content nav form");
-
-  // searchButton.addEventListener("click", function (e) {
-  //   if (window.innerWidth < 576) {
-  //     e.preventDefault();
-  //     searchForm.classList.toggle("show");
-  //     if (searchForm.classList.contains("show")) {
-  //       searchButtonIcon.classList.replace("bx-search", "bx-x");
-  //     } else {
-  //       searchButtonIcon.classList.replace("bx-x", "bx-search");
-  //     }
-  //   }
-  // });
-  // if (window.innerWidth < 768) {
-  //   sidebar.classList.add("hide");
-  // } else if (window.innerWidth > 576) {
-  //   searchButtonIcon.classList.replace("bx-x", "bx-search");
-  //   searchForm.classList.remove("show");
-  // }
-  // window.addEventListener("resize", function () {
-  //   if (this.innerWidth > 576) {
-  //     searchButtonIcon.classList.replace("bx-x", "bx-search");
-  //     searchForm.classList.remove("show");
-  //   }
-  // });
-  // const switchMode = document.getElementById("switch-mode");
-
-  // switchMode.addEventListener("change", function () {
-  //   if (this.checked) {
-  //     document.body.classList.remove("dark");
-  //   } else {
-  //     document.body.classList.add("dark");
-  //   }
-  // });
   return (
     <>
-      <section className="dark">
-        <section id="sidebar">
-          <a href="#" className="brand">
-            <i className="bx bxs-smile">hi</i>
-            <span className="text">AdminHub</span>
-          </a>
-          <ul className="side-menu top">
-            <li className="active">
-              <a href="#">
-                <i className="bx bxs-dashboard"></i>
-                <span className="text">Dashboard</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="bx bxs-doughnut-chart"></i>
-                <span className="text">Analytics</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="bx bxs-message-dots"></i>
-                <span className="text">History</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i className="bx bxs-group"></i>
-                <span className="text">Help</span>
-              </a>
-            </li>
-          </ul>
-          <ul className="side-menu">
-            <li>
-              <a href="#">
-                <i className="bx bxs-cog"></i>
-                <span className="text">Settings</span>
-              </a>
-            </li>
-            <li>
-              <a href="#" className="logout">
-                <i className="bx bxs-log-out-circle"></i>
-                <span className="text">Logout</span>
-              </a>
-            </li>
-          </ul>
-        </section>
-        {/* <!-- SIDEBAR -->
-<!-- CONTENT --> */}
-        <section id="content">
-          {/* <!-- NAVBAR --> */}
-          <nav>
-            <i className="bx bx-menu"></i>
-            <a href="#" className="nav-link"></a>
-            <form action="#">
-              <div className="form-input">
-                <input type="search" placeholder="Search Stock" />
-                <button type="submit" className="search-btn">
-                  <i className="bx bx-search"></i>
-                </button>
+      <section className="row bg-light m-0 p-0" style={{ height: "100vh" }}>
+        <div className="row m-0 p-2 justify-content-between " style={{ height: "10vh" }} id='top-row'>
+          <div className="col-1">
+            <h1 className="text-center">PaperMarket</h1>
+          </div>
+          <div className="col-4 bg-primary"></div>
+          <div className="col-1 bg-success"></div>
+        </div>
+        <div className="row m-0 p-1 justify-content-between" style={{ height: "90vh" }} id='bottom-row'>
+          <div className="col-md-2 d-flex flex-column justify-content-between py-2" id="left-panel">
+            <div className="py-3">
+              <div className="p-2 text-center my-2 card bg-dark text-light shadow-lg">Dashboard</div>
+              <div className="p-2 text-center my-2">Analysis</div>
+              <div className="p-2 text-center my-2">History</div>
+              <div className="p-2 text-center my-2">Help</div>
+            </div>
+            <div className="p-3 d-flex justify-content-center align-items-end">
+              <div className="px-4 py-2 text-center btn btn-outline-danger rounded-pill">Logout</div>
+            </div>
+          </div>
+          <div className="col-md-10 bg-secondary p-2" id="right-panel" style={{borderRadius:'1rem'}}>
+            <div className="row justify-content-around align-items-center h-25">
+              <div className="col-md-3 card d-flex flex-row justify-content-between p-2">
+                <div
+                  className="col-3 bg-primary"
+                  style={{
+                    height: "6rem",
+                    width: "6rem",
+                    borderRadius: "0.5rem",
+                  }}
+                ></div>
+                <div className="col-7">
+                  <h3>Profit</h3>
+                  <h3>$1000</h3>
+                </div>
               </div>
-            </form>
-            <input type="checkbox" id="switch-mode" hidden />
-            <label htmlFor="switch-mode" className="switch-mode"></label>
-          </nav>
-          {/* <!-- NAVBAR --> */}
-
-          {/* <!-- MAIN --> */}
-          <main style={{backgroundColor : 'white'}}>
-            <div className="head-title">
-              <div className="left">
-                <h1>Dashboard</h1>
-                <ul className="breadcrumb">
-                  <li>
-                    <a href="#">Dashboard</a>
-                  </li>
-                  <li>
-                    <i className="bx bx-chevron-right"></i>
-                  </li>
-                  <li>
-                    <a className="active" href="#">
-                      Home
-                    </a>
-                  </li>
-                </ul>
+              <div className="col-md-3 card d-flex flex-row justify-content-between p-2">
+                <div
+                  className="col-3 bg-danger"
+                  style={{
+                    height: "6rem",
+                    width: "6rem",
+                    borderRadius: "0.5rem",
+                  }}
+                ></div>
+                <div className="col-7">
+                  <h3>Top Gainer</h3>
+                  <h3>$1000</h3>
+                </div>
+              </div>
+              <div className="col-md-3 card d-flex flex-row justify-content-between p-2">
+                <div
+                  className="col-3 bg-success"
+                  style={{
+                    height: "6rem",
+                    width: "6rem",
+                    borderRadius: "0.5rem",
+                  }}
+                ></div>
+                <div className="col-7">
+                  <h3>Balance</h3>
+                  <h3>$1000</h3>
+                </div>
               </div>
             </div>
-
-            <ul className="box-info">
-              <li>
-                <i className="bx bxs-dollar-circle"></i>
-                <span className="text">
-                  <h3>{totalProfite}</h3>
-                  <p>Profit(+/-)</p>
-                </span>
-              </li>
-              <li>
-                <i className="bx bxs-group"></i>
-                <span className="text">
-                  <h3>{topGainer}</h3>
-                  <p>Top Gainer</p>
-                </span>
-              </li>
-              <li>
-                <i className="bx bxs-dollar-circle"></i>
-                <span className="text">
-                  <h3>{credit}</h3>
-                  <p>Balance</p>
-                </span>
-              </li>
-            </ul>
-
-            <div className="table-data">
-              <div className="card" style={{width : '35vw'}}>
-                <div className="head">
-                  <h3>Portfolio</h3>
-                </div>
-                <table>
-                  <thead>
-                    <tr >
-                      <th >Stock</th>
-                      <th>Bought Price</th>
-                      <th>Quantity</th>
-                      <th>Analysis</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {render}
-                  </tbody>
-                  </table>
-
-              </div>
-              <div className="todo">
-                <div className="head">
-                  <h3>Top Performers</h3>
-                </div>
-                <ul className="todo-list">
-                  <li className="completed">
-                    <p>Todo List</p>
-                  </li>
-                  <li className="completed">
-                    <p>Todo List</p>
-                  </li>
-                  <li className="not-completed">
-                    <p>Todo List</p>
-                  </li>
-                  <li className="completed">
-                    <p>Todo List</p>
-                  </li>
-                  <li className="not-completed">
-                    <p>Todo List</p>
-                  </li>
-                </ul>
-              </div>
+            <div className="row h-75 justify-content-around">
+              <div className="col-md-7 bg-danger card"></div>
+              <div className="col-md-4 bg-primary card"></div>
             </div>
-          </main>
-          {/* <!-- MAIN --> */}
-        </section>
+          </div>
+        </div>
       </section>
     </>
   );
 }
 
 export default Dashboard;
+
+// const [user, setUser] = React.useState("");
+// const token = localStorage.getItem("user");
+// const getData = async () => {
+//   try {
+//     const response = await fetch("http://localhost:4000/api/v1/dashboard", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ token }),
+//     });
+//     console.log(response);
+//     const { id, email } = await response.json();
+//     setUser({ id, email });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+// React.useEffect(() => {
+//   getData();
+// }, []);
