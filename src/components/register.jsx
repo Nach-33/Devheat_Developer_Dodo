@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import SignupImage from '../Assets/signup.svg'
+import SignupImg from '../Assets/signup.svg'
+
 function Register() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -141,17 +142,18 @@ function Register() {
               />
               <div className="row w-100 justify-content-start mt-4 mb-3 mx-0">
                 <div
-                  className="btn btn-outline-success my-1 p-2 rounded-pill w-75"
+                  className="btn my-1 p-2 rounded-pill"
                   onClick={registerClick}
+                  style={{backgroundColor:'#F49867' ,color:'black',fontWeight:'bold',fontSize:'1.5rem',width:'11rem'}}
                 >
-                  Sign-Up
+                  SignUp
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="col-md-6  p-4" >
-
+        <div className="col-md-6  p-4" style={{background:'linear-gradient(89.97deg, #040c18 1.84%, #F49867 102.67%)'}} >
+          <img src={SignupImg} alt="" />
 </div>
       </section>
     </>
