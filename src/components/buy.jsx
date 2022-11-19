@@ -50,7 +50,7 @@ function Apitest() {
         "Content-Type": "application/json",
         "Authorization": "BEARER "+token,
       },
-      body:json.stringify({
+      body:JSON.stringify({
         stock:symbol,
         qty:quantity,
         price
