@@ -1,33 +1,47 @@
 import React, { useState } from "react";
-import SignupImg from '../Assets/signup.svg'
+import SignupImg from "../Assets/signup.svg";
 
 function Register() {
+  //***********states ***********
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  //sets email as user inputs
   const emailChange = (event) => {
     const { value } = event.target;
     setEmail(value);
   };
+
+  //sets name as user inputs
   const nameChange = (event) => {
     const { value } = event.target;
     setName(value);
   };
+
+  //sets username as user inputs
   const usernameChange = (event) => {
     const { value } = event.target;
     setUsername(value);
   };
+
+  //sets password as user inputs
   const passwordChange = (event) => {
     const { value } = event.target;
     setPassword(value);
   };
+
+  //sets confirm password as user inputs
   const confirmPasswordChange = (event) => {
     const { value } = event.target;
     setConfirmPassword(value);
   };
+
+  //function after clicking the register button
   const registerClick = async () => {
+    //any field should not be empty
     if (
       name === "" ||
       username === "" ||
@@ -38,18 +52,23 @@ function Register() {
       window.alert("No Field can be empty");
       return;
     }
+    //if password and confirmPassword does not match
     if (password !== confirmPassword) {
       window.alert("Password and Confirm Password don't match");
       setPassword("");
       setConfirmPassword("");
       return;
     }
+
+    //stringifies data
     const requestBody = JSON.stringify({
       name,
       username,
       email,
       password,
     });
+
+    //sends data to backend and redirects to login page
     try {
       const response = await fetch("http://localhost:4000/api/v1/register", {
         method: "POST",
@@ -59,6 +78,7 @@ function Register() {
         body: requestBody,
       });
       const data = await response.json();
+      window.location.href = "login";
     } catch (error) {
       console.log(error);
     }
@@ -73,10 +93,13 @@ function Register() {
           background: "rgb(34, 33, 35)",
         }}
       >
-         <div className="col-md-6 p-4 text-light d-flex align-items-center justify-content-center" style={{backgroundColor:"#040C18"}}>
-         <div className="col-md-7">
-         <div className="col d-flex flex-column align-items-start">
-         <div className="mb-3">
+        <div
+          className="col-md-6 p-4 text-light d-flex align-items-center justify-content-center"
+          style={{ backgroundColor: "#040C18" }}
+        >
+          <div className="col-md-7">
+            <div className="col d-flex flex-column align-items-start">
+              <div className="mb-3">
                 <h1 className="fw-bold">Register</h1>
                 <p>Get Started with demo cash and start your trading journey</p>
               </div>
@@ -144,7 +167,13 @@ function Register() {
                 <div
                   className="btn my-1 p-2 rounded-pill"
                   onClick={registerClick}
-                  style={{backgroundColor:'#F49867' ,color:'black',fontWeight:'bold',fontSize:'1.5rem',width:'11rem'}}
+                  style={{
+                    backgroundColor: "#F49867",
+                    color: "black",
+                    fontWeight: "bold",
+                    fontSize: "1.5rem",
+                    width: "11rem",
+                  }}
                 >
                   SignUp
                 </div>
@@ -152,9 +181,15 @@ function Register() {
             </div>
           </div>
         </div>
-        <div className="col-md-6  p-4" style={{background:'linear-gradient(89.97deg, #040c18 1.84%, #F49867 102.67%)'}} >
+        <div
+          className="col-md-6  p-4"
+          style={{
+            background:
+              "linear-gradient(89.97deg, #040c18 1.84%, #F49867 102.67%)",
+          }}
+        >
           <img src={SignupImg} alt="" />
-</div>
+        </div>
       </section>
     </>
   );

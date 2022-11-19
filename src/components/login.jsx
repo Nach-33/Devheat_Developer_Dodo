@@ -5,14 +5,18 @@ import LoginImg from "../Assets/login.svg"
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  //Set's value of username as user inputs the data
   const usernameChange = (event) => {
     const { value } = event.target;
     setUsername(value);
   };
+  //Set's valye of password as user inputs the data
   const passwordChange = (event) => {
     const { value } = event.target;
     setPassword(value);
   };
+  //function after login button is beign clicked
   const loginClick = async () => {
     if (username === "" || password === "") {
       window.alert("No Field can be empty");
@@ -22,6 +26,7 @@ function Login() {
       username,
       password,
     });
+    //connecting with backend, verifying if the user if vereified user or not
     try {
       const response = await fetch("http://localhost:4000/api/v1/login", {
         method: "POST",
@@ -32,7 +37,7 @@ function Login() {
       });
       const { token} = await response.json();
       localStorage.setItem("user", token);
-      const path = "/dashboard";
+      const path = "/in";
       window.location.href = path;
     } catch (error) {
       console.log(error);

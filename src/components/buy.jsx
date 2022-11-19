@@ -10,10 +10,10 @@ function Apitest() {
   const [data2, setData2] = React.useState();
   const [canBuy, setCanBuy] = React.useState(0);
   const [price, setPrice] = React.useState('');
-  const Display = <h2 style={{ color: "red" }}>Not available at this time</h2>;
-  //*************graph properties******************************** */
+  const [quantity, setQuantity]= React.useState(0);
+  //**************** getting key in format YYYY-MM-DD HH:mm:00 so as to acess data recived from api */
   var startdate = moment();
-  startdate = startdate.subtract(1, "days");
+  startdate = startdate.subtract(2, "days");
   startdate = startdate.format("YYYY-MM-DD, HH:mm:00");
   const remainder = 5 - (moment().minutes() % 5);
   const dateTime = moment(startdate)
@@ -21,10 +21,13 @@ function Apitest() {
     .format("YYYY-MM-DD 12:30:00");
    console.log('date', dateTime);
   //**********************************FUNCTIONS****************************** */
+
+  //sets user input in symbol
   function handleChange(e) {
     const { value } = e.target;
     setsymbol(value);
   }
+  //as soon as button is clicked, data is being fetched from the api.
   async function handleClick2(e) {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=JBQTJBWV8LLJYL6Y`
@@ -33,7 +36,14 @@ function Apitest() {
       .then((response) => setData(response))
       .catch((err) => console.error(err));
   }
+  function handleChangeQuantity(e){
+    const {value} = e.target
+    setQuantity(value);
+    console.log(quantity);
+  }
   //*****************************USEEFFECTS******************************************* */
+
+  //checks if market if open to buy and sell stocks
   React.useEffect(() => {
     const date = new Date();
     const hours = date.getHours();
@@ -41,20 +51,19 @@ function Apitest() {
       console.log("camein");
       setCanBuy(1);
     } else {
-      setCanBuy(0);
+      setCanBuy(1);
     }
   }, []);
 
 
+  //stores data in data2
   React.useEffect(() => {
     setData2(data["Time Series (5min)"]);
   }, [data]);
 
 
-
+  //checks data with data from api and sets price
   React.useEffect(() => {
-
-    console.log('data2', data2);
     for (var i in data2) {
       if (i == dateTime) {
         setPrice(data2[i]["4. close"]);
@@ -94,11 +103,19 @@ function Apitest() {
           </center>
           {price && (
           <section className="d-flex justify-content-start " style={{width : '95vw'}}>
-            <div className="card col-md-5 mx-4" style={{marginTop : '0vh', maxHeight: '40vh', borderRadius:'3rem', backgroundColor:'#c1b9b9'}}>
+            <div className="card col-md-5 mx-4" style={{marginTop : '0vh', maxHeight: '50vh', borderRadius:'3rem', backgroundColor:'#c1b9b9'}}>
               <h4 className="text-start m-5 " style={{fontSize:'2rem'}}>Stock Name: {symbol} </h4>
               <h4 className="text-start m-5" style={{fontSize:'2rem'}}>Stock Price: {price}</h4>
               <h4 className="text-start m-5" style={{fontSize:'2rem'}}>Quantity: </h4>
-              <center><button className="btn btn-outline-success " style={{borderRadius:'2rem',width:'24rem' ,fontWeight:'bolder',fontSize:'1.6rem', marginBottom: '3vh'}}>Buy</button></center>
+              <div className="d-flex justify-content-center align-items-center">
+              <input
+              type="text"
+              className="m-2 rounded-pill p-3"
+              placeholder="Quantity"
+              onChange={handleChangeQuantity}
+              style={{width : '10vw', borderRadius:'3rem',height:'4rem',fontSize:'2rem',textAlign:'center', marginLeft :'20vw'}}
+            />
+              <center><button className="btn btn-outline-success " style={{borderRadius:'2rem',width:'24rem' ,fontWeight:'bolder',fontSize:'1.6rem', marginBottom: '3vh', marginTop : '20px'}}>Buy</button></center></div>
             </div>
             <div className="md-5" style={{marginLeft : '15vw'}}>
               <img src={Image} alt="" style={{height : '60vh'}} />

@@ -4,24 +4,24 @@ import Navbar_loggedin from '../Elements/Navbars/navbar_loggedin'
 const moment = require("moment");
 
 function Sell() {
+  //******states*******
   const [symbol, setsymbol] = React.useState("");
   const [data, setData] = React.useState(false);
   const [data2, setData2] = React.useState();
   const [canBuy, setCanBuy] = React.useState(0);
   const [price, setPrice] = React.useState(0);
-  const Display = <h2 style={{ color: "red" }}>Not available at this time</h2>;
+
+  //******************gets current date and time and converts into YYYY-MM-DD HH:mm:00 format because we recive data in interval of 5 minutes********************
   var startdate = moment();
-  startdate = startdate.subtract(2, "days");
-  startdate = startdate.format("YYYY-MM-DD, HH:mm:00 a");
+  startdate = startdate.subtract(1, "days");
+  startdate = startdate.format("YYYY-MM-DD, HH:mm:00");
   const remainder = 5 - (moment().minutes() % 5);
   const dateTime = moment(startdate)
     .add(remainder, "minutes")
-    .format("YYYY-MM-DD, HH:mm:00 a");
+    .format("YYYY-MM-DD, HH:mm:00");
   console.log("finally done", dateTime);
-  function handleChange(e) {
-    const { value } = e.target;
-    setsymbol(value);
-  }
+
+
   async function handleClick2(e) {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=JBQTJBWV8LLJYL6Y`
@@ -30,11 +30,15 @@ function Sell() {
       .then((response) => console.log('hi', response))
       .catch((err) => console.error(err));
   }
+
+
   //*****************************USEEFFECTS******************************************* */
+
+  //checks if stock market is open to buy and sell
   React.useEffect(() => {
     const date = new Date();
     const hours = date.getHours();
-    if (hours >= 12 && hours < 17) {
+    if (hours >= 12 && hours < 20) {
       console.log("camein");
       setCanBuy(1);
     } else {
@@ -42,7 +46,7 @@ function Sell() {
     }
   }, []);
 
-
+  //sets data in data2
   React.useEffect(() => {
     setData2(data["Time Series (5min)"]);
   }, [data]);
@@ -51,6 +55,7 @@ function Sell() {
 
   React.useEffect(() => {
     console.log(data2);
+    //checks in data for the current price at this time.
     for (var i in data2) {
       if (i == dateTime) {
         setPrice(data2[i]["4. close"]);
@@ -59,6 +64,9 @@ function Sell() {
       }
     }
   }, [data2]);
+
+
+
   return (
     <>
     <Navbar_loggedin />
@@ -73,11 +81,11 @@ function Sell() {
           color: '#040C18',
           backgroundColor : '#040C18'
         }} />
-        <h2 className='m-3'>Stock Name: </h2>
-        <h2 className='m-3'>Stock Purchased Price: </h2>
-        <h2 className='m-3'>Stock Current Price: </h2>
-        <h2 className='m-3'>Profit: </h2>
-        <h2 className='m-3 pb-4'>Quantity: </h2>
+        <h2 className='m-3'>Stock Name: {symbol}</h2>
+        <h2 className='m-3'>Stock Purchased Price: {}</h2>
+        <h2 className='m-3'>Stock Current Price: {price}</h2>
+        <h2 className='m-3'>Profit: {}</h2>
+        <h2 className='m-3 pb-4'>Quantity: {}</h2>
 
         <center><button  className="btn btn-danger" style={{height: '6vh', width : '16vw',borderRadius:'2rem',fontSize:'1.9rem',alignItems:'center'}}>Sell</button></center>
 
