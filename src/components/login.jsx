@@ -47,12 +47,12 @@ function Login() {
           background: "rgb(34, 33, 35)",
         }}
       >
-        <div className="col-md-6 p-4  text-light d-flex align-items-center justify-content-center" style={{backgroundColor:"#040C18"}}>
+        <div className="col-md-6 p-4 text-light d-flex align-items-center justify-content-center" style={{backgroundColor:"#040C18"}}>
           <div className="col-md-7">
-            <div className="col d-flex flex-column align-items-center" style={{border : '1px solid white'}}>
+            <div className="col d-flex flex-column align-items-start">
               <div className="mb-3">
-                <center><h1 className="fw-bold my-3">Login</h1>
-                <p>Get Started with demo cash and start your trading journey</p></center>
+                <h1 className="fw-bold">Login</h1>
+                <p>Get Started with demo cash and start your trading journey</p>
               </div>
               <label className="form-label my-1" style={{ fontSize: "1.3rem" }}>
                 Email
@@ -76,17 +76,19 @@ function Login() {
                 onChange={passwordChange}
                 value={password}
               />
-              <div
-                  className="btn btn-outline-primary my-4 p-2 rounded-pill w-75"
+              <div className="row w-100 justify-content-start mt-4 mb-3 mx-0">
+                <div
+                  className="btn btn-outline-primary my-1 p-2 rounded-pill w-75"
                   onClick={loginClick}
                 >
                   Login
                 </div>
+              </div>
               <p>Not Registered Yet? <Link to="/register" className="text-primary">Create an account</Link></p>
             </div>
           </div>
         </div>
-        <div className="col-md-6  p-4" style={{backgroundColor:"#040C18"}}>
+        <div className="col-md-6  p-4"  >
 
         </div>
       </section>
