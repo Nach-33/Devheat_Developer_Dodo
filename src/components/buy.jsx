@@ -41,9 +41,9 @@ function Apitest() {
     setQuantity(value);
     console.log(quantity);
   }
-
-  const token = localStorage.getItem("user");
-  const buyStock = async () => {
+  function handleBuy(){
+    const token = localStorage.getItem("user");
+    const buyStock = async () => {
     try {
       const response = await fetch("http://localhost:4000/api/v1/buy", {
         method: "POST",
@@ -62,6 +62,9 @@ function Apitest() {
       console.log(error);
     }
   };
+  }
+
+  
   //*****************************USEEFFECTS******************************************* */
 
   //checks if market if open to buy and sell stocks
@@ -201,6 +204,7 @@ function Apitest() {
                             marginBottom: "3vh",
                             marginTop: "20px",
                           }}
+                          onClick = {handleBuy}
                         >
                           Buy
                         </button>
