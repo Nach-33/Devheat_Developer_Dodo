@@ -51,14 +51,14 @@ function Dashboard() {
         className="d-flex card flex-row justify-content-around p-1 m-2"
         key={index}
       >
-        <div>
-          <h2 className="text-light">{element.stock}</h2>
+        <div className="col-md-4">
+          <h2 className="text-center">{element.stock}</h2>
         </div>
-        <div>
-          <h2 className="text-light">{element.qty}</h2>
+        <div className="col-md-4">
+          <h2 className="text-center">{element.qty}</h2>
         </div>
-        <div>
-          <h2 className="text-light">{element.price}</h2>
+        <div className="col-md-4">
+          <h2 className="text-center">{element.price}</h2>
         </div>
       </div>
     );
@@ -66,20 +66,20 @@ function Dashboard() {
   const historyRender = user.transactions.map((element, index) => {
     return (
       <div
-        className="d-flex card flex-row justify-content-around p-1 m-2"
+        className="d-flex card flex-row justify-content-around p-1 m-1"
         key={index}
       >
-        <div>
-          <h2 className="text-light">{element.stock}</h2>
+        <div className="col-md-3">
+          <h2 className="text-center">{element.stock}</h2>
         </div>
-        <div>
-          <h2 className="text-light">{element.trade}</h2>
+        <div className="col-md-3">
+          <h2 className="text-center">{element.trade}</h2>
         </div>
-        <div>
-          <h2 className="text-light">{element.qty}</h2>
+        <div className="col-md-3">
+          <h2 className="text-center">{element.qty}</h2>
         </div>
-        <div>
-          <h2 className="text-light">{element.price}</h2>
+        <div className="col-md-3">
+          <h2 className="text-center">{element.price}</h2>
         </div>
       </div>
     );
