@@ -43,21 +43,23 @@ function Apitest() {
       setCanBuy(0);
     }
   }, []);
+
+  
   React.useEffect(() => {
     setData2(data["Time Series (5min)"]);
   }, [data]);
+
+
+
   React.useEffect(() => {
     console.log(data2);
     for (var i in data2) {
-      console.log(i);
       if (i == dateTime) {
-        console.log("found");
         setPrice(data2[i]["4. close"]);
+        break;
       } else {
-        console.log("notfound");
       }
     }
-    console.log("value", canBuy);
   }, [data2]);
 
   return (
