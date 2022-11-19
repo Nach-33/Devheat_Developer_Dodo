@@ -34,24 +34,24 @@ function Sell() {
   const sellStock = async () => {
     try {
       const response = await fetch("http://localhost:4000/api/v1/sell", {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: "BEARER " + token,
         },
         body: JSON.stringify({
           stock: symbol,
-          qty: quantity,
-          price,
+          qty: Number(quantity),
+          price:Number(price),
         }),
       });
-      const data = response.json();
-      setUser(data);
-
+      const data = await response.json();
+      console.log('hi', data);
     } catch (error) {
       console.log(error);
     }
   };
+
   async function handleClick2(e) {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=JBQTJBWV8LLJYL6Y`
@@ -59,8 +59,6 @@ function Sell() {
       .then((response) => response.json())
       .then((response) => setData(response))
       .catch((err) => console.error(err));
-
-      sellStock();
   }
 
 
