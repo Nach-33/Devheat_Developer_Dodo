@@ -67,6 +67,24 @@ function Apitest() {
     setPrediction(false);
     console.log(prediction)
   }
+  const token = localStorage.getItem('user');
+  const getPrediction = async () =>{
+    let predict=1;
+    if(!prediction) predict=0;
+    const response = await fetch('http://localhost:4000/api/v1/prediction',{
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "BEARER " + token,
+      },
+      body:JSON.stringify({
+        prediction:predict,
+        stock: symbol
+      })
+    })
+    const data = await response.json();
+    console.log(data);
+  }
   //*****************************USEEFFECTS******************************************* */
 
   React.useEffect(() => {
@@ -157,7 +175,7 @@ function Apitest() {
               type="button"
               className=" btn my-1 p-2 rounded-pill"
               style={{width:'10rem',fontWeight:'bolder',fontSize:'1.5rem',padding:'1rem' ,backgroundColor:'#E5D9B6',color:'#285430'}}
-              
+              onClick={getPrediction}
             >Predict</button>
         
       </div>
