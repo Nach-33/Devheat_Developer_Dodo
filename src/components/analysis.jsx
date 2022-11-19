@@ -16,6 +16,7 @@ function Apitest() {
   const [close, setClose] = React.useState([]);
   const [volume, setVolume] = React.useState([]);
   const [clicked, setClicked] = React.useState("");
+  const [prediction, setPrediction] = React.useState(false)
   const [graph, setgraph] = React.useState([
     ["day", "low", "open", "close", "high"],
   ]);
@@ -58,6 +59,14 @@ function Apitest() {
       }
     }
   }
+  function handleCheckbox1(){
+    setPrediction(true);
+    console.log(prediction)
+  }
+  function handleCheckbox2(){
+    setPrediction(false);
+    console.log(prediction)
+  }
   //*****************************USEEFFECTS******************************************* */
 
   React.useEffect(() => {
@@ -73,10 +82,8 @@ function Apitest() {
     }
     for (var i in data2) {
       for (var j in data2[i]) {
-        // console.log(j);
         if (j == "1. open") {
           open.push(data2[i][j]);
-          // console.log('open', open
         } else if (j == "2. high") {
           high.push(data2[i][j]);
         } else if (j == "3. low") {
@@ -103,6 +110,8 @@ function Apitest() {
       ]);
     }
   }, [data2]);
+
+
   return (
     <>
     <Navbar_loggedin />
@@ -139,18 +148,15 @@ function Apitest() {
             <center><p style={{color:'red', fontSize : '10px'}}>Will stock increase in future? Whats your prediction? Comment yes or no</p></center>
           </div>
         <div className="d-flex justify-content-center">
-
-        <input
-          type="text"
-          className="m-2 rounded-pill p-3"
-          placeholder=""
-          onChange={handleChange}
-          style={{width : '10vw', borderRadius:'3rem',height:'4rem',fontSize:'2rem',textAlign:'center'}}
-        />
-        <button
+        
+            <input type="radio" onClick={handleCheckbox1} name = '1' />
+            <label htmlFor="High" style={{color:'#A4BE7B', fontSize : '1.8rem',fontWeight:'bolder',padding:'1rem'}} > High</label>
+            <input type="radio" onClick={handleCheckbox2} name = '1' />
+            <label htmlFor="Low" style={{color:'#A4BE7B', fontSize : '1.8rem',fontWeight:'bolder',padding:'1rem'}} >Low</label>
+            <button
               type="button"
-              className=" btn btn-outline-danger my-1 p-2 rounded-pill"
-              style={{width:'10rem',fontWeight:'bold',fontSize:'1.5rem'}}
+              className=" btn my-1 p-2 rounded-pill"
+              style={{width:'10rem',fontWeight:'bolder',fontSize:'1.5rem',padding:'1rem' ,backgroundColor:'#E5D9B6',color:'#285430'}}
               
             >Predict</button>
         
@@ -183,7 +189,6 @@ function Apitest() {
                   </p>
                 );
               })}
-            {console.log("graph", graph)}
             <button onClick={handleClickGraph} style={{borderRadius:'2rem',fontSize:'1.5rem',width:'20rem'}}>Check Graphical Data</button>
             {clicked && (
               <div className="container mt-5">
