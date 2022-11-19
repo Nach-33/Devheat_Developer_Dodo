@@ -4,7 +4,7 @@ const cors = require("cors");
 const authRoutes = require("./routes/auth");
 const userDataRoutes = require("./routes/user.data");
 const tradeRoutes = require("./routes/trade");
-const dbconnect = require("./db/connect.js");
+const dbconnect = require("./db/dbconnect.js");
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 
