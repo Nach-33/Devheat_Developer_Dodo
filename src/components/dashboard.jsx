@@ -138,8 +138,8 @@ function Dashboard() {
                   }}
                 ><img src={UserImg} alt="" /></div>
                 <div className="col-7">
-                  <h2 style={{fontWeight:'bold'}}> Hello,</h2>
-                  <h2>{user.username}</h2>
+                  <h2 className="fw-bold"> Hello,</h2>
+                  <h2 className="fw-bold">{user.username}</h2>
                 </div>
               </div>
               <div
@@ -155,8 +155,8 @@ function Dashboard() {
                   }}
                 ><img src={ProfitImg} alt="" /></div>
                 <div className="col-7 ">
-                  <h2 style={{fontWeight:'bold'}}>Profit</h2>
-                  <h2>${totalProfit}</h2>
+                  <h2 className="fw-bold">Profit</h2>
+                  <h2>${Math.round(totalProfit)}</h2>
                 </div>
               </div>
               <div
@@ -172,8 +172,8 @@ function Dashboard() {
                   }}
                 ><img src={WalletImg} alt="" /></div>
                 <div className="col-7">
-                  <h2 style={{fontWeight:'bold'}}>Balance</h2>
-                  <h2>${user.balance}</h2>
+                  <h2 className="fw-bold">Balance</h2>
+                  <h2>${Math.round(user.balance)}</h2>
                 </div>
               </div>
             </div>

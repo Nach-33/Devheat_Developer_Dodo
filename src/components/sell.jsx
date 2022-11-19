@@ -112,7 +112,7 @@ function Sell() {
       console.log("camein");
       setCanBuy(1);
     } else {
-      setCanBuy(1);
+      setCanBuy(0);
     }
   }, []);
 
@@ -192,7 +192,7 @@ function Sell() {
             </div>
             <h2 className="m-3">Stock Purchased Price: {purchasePrice}</h2>
             <h2 className="m-3">Stock Current Price: {price}</h2>
-            <h2 className="m-3">Profit: {}</h2>
+            <h2 className="m-3">Profit: {Math.round((price-purchasePrice)*quantity)}</h2>
             <h2 className="m-3 pb-4">Quantity: {}</h2>
             <div className="d-flex justify-content-center align-items-center">
               <input
