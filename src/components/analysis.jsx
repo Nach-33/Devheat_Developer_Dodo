@@ -135,15 +135,15 @@ function Apitest() {
       {data3 && (
         <center><section style={{border : '1px solid white', borderTopLeftRadius : '25px',borderTopRightRadius : '25px', width : '70vw', background:'radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%)', padding : '2vh'}}>
           <div>
-            <center><p style={{color:'red', fontSize : '15px'}}>Note: Prediction game costs 50 dollars, right guess gets you half of your money back</p></center>
-            <center><p style={{color:'red', fontSize : '10px'}}>Write probability of stock increasing</p></center>
+            <center><p style={{color:'red', fontSize : '15px'}}>Note: Prediction game costs $50, correct guess gives reward of $25</p></center>
+            <center><p style={{color:'red', fontSize : '10px'}}>Will stock increase in future? Whats your prediction? Comment yes or no</p></center>
           </div>
         <div className="d-flex justify-content-center">
 
         <input
           type="text"
           className="m-2 rounded-pill p-3"
-          placeholder="%"
+          placeholder=""
           onChange={handleChange}
           style={{width : '10vw', borderRadius:'3rem',height:'4rem',fontSize:'2rem',textAlign:'center'}}
         />
