@@ -41,6 +41,21 @@ function Apitest() {
     setQuantity(value);
     console.log(quantity);
   }
+
+  const buyStock = async()=>{
+    const response = await fetch('http://localhost:4000/api/v1/dashboard',  {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": "BEARER "+token,
+      },
+      body:json.stringify({
+        stock:symbol,
+        qty:quantity,
+        price
+      })
+    })
+  }
   //*****************************USEEFFECTS******************************************* */
 
   //checks if market if open to buy and sell stocks
