@@ -18,6 +18,7 @@ import './Css/cta.css'
 import './Css/blog.css'
 import './Css/article.css'
 import './Css/register.css'
+import './Css/dashboard.css'
 import Analysis from './components/analysis';
 import './Css/footer.css'
 function App() {

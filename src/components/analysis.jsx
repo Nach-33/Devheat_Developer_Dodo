@@ -1,10 +1,11 @@
+
 import React, { Component } from "react";
 import Chart from "react-google-charts";
 
 function Apitest() {
   //***********************************STATES******************************* */
-  const [symbol, setsymbol] = React.useState("AAPL");
-  const [data, setData] = React.useState('');
+  const [symbol, setsymbol] = React.useState("");
+  const [data, setData] = React.useState(false);
   const [data2, setData2] = React.useState();
   const [data3, setData3] = React.useState("");
   const [xaxis, setXaxis] = React.useState([]);
@@ -20,7 +21,6 @@ function Apitest() {
 //*************graph properties******************* */
   var options = {
     legend: "none",
-    backgroundColor: '#040C18',
   candlestick: {
     fallingColor: { strokeWidth: 0, fill: "#f6465d" }, // red
     risingColor: { strokeWidth: 0, fill: "#0ccb80" }, // green
@@ -34,9 +34,11 @@ function Apitest() {
   }
 
   //**********************************FUNCTIONS****************************** */
-  
+  function handleChange(e) {
+    const { value } = e.target;
+    setsymbol(value);
+  }
   async function handleClick2(e) {
-    console.log('fetching1');
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=JBQTJBWV8LLJYL6Y`
     )
@@ -45,8 +47,6 @@ function Apitest() {
       .catch((err) => console.error(err));
   }
   function handleClickGraph() {
-    console.log('fetching2');
-
     setClicked("hello");
 
     class GoogleChart extends Component {
@@ -58,22 +58,17 @@ function Apitest() {
   //*****************************USEEFFECTS******************************************* */
 
   React.useEffect(() => {
-    console.log('fetching3');
-
     setData2(data["Time Series (5min)"]);
     console.log(data);
   }, [data]);
 
   React.useEffect(() => {
-    console.log('fetching4');
-
     for (var i in data2) {
       setData3(data2[i]);
       break;
     }
     for (var i in data2) {
-      xaxis.push('Time');
-      break;
+      xaxis.push(i);
     }
     for (var i in data2) {
       for (var j in data2[i]) {
@@ -111,46 +106,56 @@ function Apitest() {
     <>
       <center>
         <div
-          className="row justify-content-center shadow p-3 mb-5  rounded"
-          style={{ width: "50vw", border: "1px solid black", backgroundColor: '#040C18', color : 'white' }}
+          className="row justify-content-center shadow p-3 mb-5 bg-white rounded"
+          style={{ width: "50vw", border: "1px solid black" }}
         >
           <h3>Stocks</h3>
+          <div>
+            <input
+              type="text"
+              className="col-sm-10"
+              placeholder="Enter stock name"
+              onChange={handleChange}
+              style={{ maxWidth: "20vw" }}
+            />
+          </div>
 
           <button
             type="button"
             className="btn btn-success col-sm-5 my-3"
             onClick={handleClick2}
           >
-            Show details
+            Success
           </button>
         </div>
       </center>
       {data3 && (
-        
+        <center>
+          <h3> Current Status:</h3>
+        </center>
+      )}
+      {data3 && (
+        <center>
           <div
-            className="shadow p-3 mb-5 rounded"
+            className="shadow p-3 mb-5 bg-white rounded"
             style={{
-              backgroundColor: "#040C18",
-              color: 'white',
+              backgroundColor: "white",
               width: "100vw",
               border: "1px solid black",
             }}
           >
-        
-            <div style={{marginLeft : '6vw', border : '1px solid white', maxWidth : '86.5vw', paddingLeft : '2vw', paddingTop : '2vh', paddingBottom : '2vh'}}>
-                <h4>Purchased Price: </h4>
-                <h4>Purchased Date: </h4>
-                <h4>Current Price: </h4>
-                <h4>Profit: </h4>
-
-
-
-            <button onClick={handleClickGraph} className = "btn btn-success">Check Graphical Data</button>
-            </div>
+            {data3 &&
+              Object.keys(data3).map(function (key) {
+                return (
+                  <p>
+                    {key} : {data3[key]}
+                  </p>
+                );
+              })}
+            {console.log("graph", graph)}
+            <button onClick={handleClickGraph}>Check Graphical Data</button>
             {clicked && (
-            
-              <div className="container mt-5" style={{border : '1px solid white'}}>
-              <center>  <h3 style = {{marginBottom : '0vh', paddingTop : '4vh'}}>Todays Graph Analysis</h3></center>
+              <div className="container mt-5">
                 <Chart
                   width={"100%"}
                   height={450}
@@ -163,7 +168,7 @@ function Apitest() {
               </div>
             )}
           </div>
-        
+        </center>
       )}
     </>
   );

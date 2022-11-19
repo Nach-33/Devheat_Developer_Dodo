@@ -21,10 +21,9 @@ const featuresData = [
 ];
 
 const Features = () => (
-  <div className="features section__padding pb-5 px-5" id="features ">
+  <div className="features section__padding pb-5 px-5 d-flex justify-content-space-around" id="features ">
     <div className="features-heading">
-      <h1 className="gradient__text">The Future is Now and You Just Need to Realize It. Step into Future Today. & Make it Happen.</h1>
-      <p>Request Early Access to Get Started</p>
+      <h3 className="gradient__text" style = {{maxWidth : '40vw'}}>The Future is Now and You Just Need to Realize It. Step into Future Today. & Make it Happen.</h3>
     </div>
     <div className="features-container">
       {featuresData.map((item, index) => (

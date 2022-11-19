@@ -3,7 +3,9 @@
     padding: 0;
     margin: 0;
     scroll-behavior: smooth;
+    
   }
+  
   :root {
     --font-family: 'Manrope', sans-serif;
   
