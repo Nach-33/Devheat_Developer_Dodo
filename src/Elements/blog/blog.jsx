@@ -5,50 +5,22 @@ import axios from "axios";
 function Blog() {
   //fetch api key = fb493da69e8d427b8128e249e50049b8
   //url1 : https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=fb493da69e8d427b8128e249e50049b8
-  const [news, setNews] = React.useState({
-    status: "ok",
-    totalResults: "5",
-    article: [
-      {
-        source: { id: null, name: "YouTube" },
-        author: null,
-        title:
-          "Loading...",
-        description:
-          "Loading",
-        url: "https://www.youtube.com/watch?v=ICWGscrrx6E",
-        urlToImage: "https://i.ytimg.com/vi/ICWGscrrx6E/maxresdefault.jpg",
-        publishedAt: "2022-11-18T18:23:27Z",
-        content: null,
-      },
-      {
-        source: { id: null, name: "Investing.com" },
-        author: "Reuters",
-        title:
-          "Loading...",
-        description:
-          "Loading...",
-        url: "https://www.investing.com/news/stock-market-news/futures-rise-after-twoday-selloff-on-wall-street-2947886",
-        urlToImage:
-          "https://i-invdn-com.investing.com/news/WallStreet_800x533_L_1606839595.jpg",
-        publishedAt: "2022-11-18T18:07:00Z",
-        content:
-          "By Ankika Biswas and Amruta Khandekar\r\n(Reuters) -The S&amp;P 500 and the Nasdaq reversed early gains on Friday, with investors piling into defensive sectors while tech and growth stocks took a hit a… [+2655 chars]",
-      },
-    ],
-  });
+  const [news, setNews] = React.useState(false);
   const Render = <div></div>;
-  React.useState(() => {
-    fetch(
+  async function Response(){
+    await fetch(
       `https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=fb493da69e8d427b8128e249e50049b8`
     )
       .then((response) => response.json())
       .then((response) => setNews(response))
       .catch((err) => console.error(err));
+  }
+  React.useState(() => {
+      Response();
   }, []);
 
   React.useEffect(() => {
-    console.log(news);
+    console.log('News',news);
   }, [news]);
 
   // async function handleClick(e) {
@@ -62,6 +34,7 @@ function Blog() {
   return (
     <>
       {/* <Render /> */}
+      {/* {news?<h1 style={{color : 'white'}}>not hello</h1> : <h1 style={{color: 'white'}}>hellow</h1>} */}
       <div className="blog section__padding px-5" id="blog">
         <div className="blog-heading">
           <h1 className="gradient__text">

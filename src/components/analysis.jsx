@@ -20,6 +20,7 @@ function Apitest() {
 //*************graph properties******************* */
   var options = {
     legend: "none",
+    backgroundColor: '#040C18',
   candlestick: {
     fallingColor: { strokeWidth: 0, fill: "#f6465d" }, // red
     risingColor: { strokeWidth: 0, fill: "#0ccb80" }, // green
@@ -71,7 +72,8 @@ function Apitest() {
       break;
     }
     for (var i in data2) {
-      xaxis.push(i);
+      xaxis.push('Time');
+      break;
     }
     for (var i in data2) {
       for (var j in data2[i]) {
@@ -109,8 +111,8 @@ function Apitest() {
     <>
       <center>
         <div
-          className="row justify-content-center shadow p-3 mb-5 bg-white rounded"
-          style={{ width: "50vw", border: "1px solid black" }}
+          className="row justify-content-center shadow p-3 mb-5  rounded"
+          style={{ width: "50vw", border: "1px solid black", backgroundColor: '#040C18', color : 'white' }}
         >
           <h3>Stocks</h3>
 
@@ -119,37 +121,36 @@ function Apitest() {
             className="btn btn-success col-sm-5 my-3"
             onClick={handleClick2}
           >
-            Success
+            Show details
           </button>
         </div>
       </center>
       {data3 && (
-        <center>
-          <h3> Current Status:</h3>
-        </center>
-      )}
-      {data3 && (
-        <center>
+        
           <div
-            className="shadow p-3 mb-5 bg-white rounded"
+            className="shadow p-3 mb-5 rounded"
             style={{
-              backgroundColor: "white",
+              backgroundColor: "#040C18",
+              color: 'white',
               width: "100vw",
               border: "1px solid black",
             }}
           >
-            {data3 &&
-              Object.keys(data3).map(function (key) {
-                return (
-                  <p>
-                    {key} : {data3[key]}
-                  </p>
-                );
-              })}
-            {console.log("graph", graph)}
-            <button onClick={handleClickGraph}>Check Graphical Data</button>
+        
+            <div style={{marginLeft : '6vw'}}>
+                <h4>Purchased Price: </h4>
+                <h4>Purchased Date: </h4>
+                <h4>Current Price: </h4>
+                <h4>Profit: </h4>
+
+
+
+            <button onClick={handleClickGraph} className = "btn btn-success">Check Graphical Data</button>
+            </div>
             {clicked && (
-              <div className="container mt-5">
+            
+              <div className="container mt-5" style={{border : '1px solid white'}}>
+              <center>  <h3 style = {{marginBottom : '0vh', paddingTop : '4vh'}}>Todays Graph Analysis</h3></center>
                 <Chart
                   width={"100%"}
                   height={450}
@@ -162,7 +163,7 @@ function Apitest() {
               </div>
             )}
           </div>
-        </center>
+        
       )}
     </>
   );
