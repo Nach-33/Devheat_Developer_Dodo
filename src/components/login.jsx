@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Login() {
-  const [username, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const emailChange = (event) => {
+  const usernameChange = (event) => {
     const { value } = event.target;
-    setEmail(value);
+    setUsername(value);
   };
   const passwordChange = (event) => {
     const { value } = event.target;
@@ -55,14 +55,14 @@ function Login() {
                 <p>Get Started with demo cash and start your trading journey</p>
               </div>
               <label className="form-label my-1" style={{ fontSize: "1.3rem" }}>
-                Email
+                Username
               </label>
               <input
                 type="username"
                 className="form-control my-1 w-75"
                 id="username"
                 placeholder="Eg. abc@xyz.com"
-                onChange={emailChange}
+                onChange={usernameChange}
                 value={username}
               />
               <label className="form-label my-1" style={{ fontSize: "1.3rem" }}>
