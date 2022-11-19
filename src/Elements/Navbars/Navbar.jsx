@@ -17,22 +17,19 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar-links">
         <div className="navbar-links_logo">
-          <h3 style = {{color: 'white', paddingRight : '2vw'}} id = 'logo' className='gradient__text'>PaperMarket</h3>
+          <h3 style = {{color: 'white', paddingRight : '1vw',fontSize:'2.5rem',paddingLeft:'0.1rem',fontWeight:'bolder'}} id = 'logo'>PaperMarket</h3>
         </div>
         <div className="navbar-links_container">
-          <p  > <a href="#home">Home</a></p>
-          <p className = 'mx-5'><a href="#">About us</a></p>
-          <p ><a href="#">FAQ</a></p>
         </div>
       </div>
       <div className="navbar-sign">
-        <button type="button" onClick={handleClickLogin} className = 'mx-4'>Login</button>
+        <button type="button" onClick={handleClickLogin} className = 'mx-4' style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>Login</button>
       </div>
       <div className="navbar-sign">
-        <button type="button" onClick={handleRegisterClick} >Sign up</button>
+        <button type="button" onClick={handleRegisterClick} style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}} >Sign up</button>
       </div>
       <div className="navbar-sign">
-        <button type="button" onClick={handlePredictionClick} className = 'mx-4'>Prediction Game</button>
+        <button type="button" onClick={handlePredictionClick} className = 'mx-4' style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>Prediction Game</button>
       </div>
       {/* <div className="gpt3__navbar-menu">
         {toggleMenu

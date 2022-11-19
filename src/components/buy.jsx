@@ -13,7 +13,7 @@ function Apitest() {
   const [quantity, setQuantity] = React.useState(0);
   //**************** getting key in format YYYY-MM-DD HH:mm:00 so as to acess data recived from api */
   var startdate = moment();
-  startdate = startdate.subtract(2, "days");
+  startdate = startdate.subtract(1, "days");
   startdate = startdate.format("YYYY-MM-DD, HH:mm:00");
   const remainder = 5 - (moment().minutes() % 5);
   const dateTime = moment(startdate)
@@ -40,9 +40,9 @@ function Apitest() {
     setQuantity(value);
     console.log(quantity);
   }
-
-  const token = localStorage.getItem("user");
-  const buyStock = async () => {
+  function handleBuy(){
+    const token = localStorage.getItem("user");
+    const buyStock = async () => {
     try {
       const response = await fetch("http://localhost:4000/api/v1/buy", {
         method: "POST",
@@ -61,9 +61,12 @@ function Apitest() {
       console.log(error);
     }
   };
+  }
+
+  
   //*****************************USEEFFECTS******************************************* */
 
-  //checks if market if open to buy and sell stocks
+  //checks if market is open to buy and sell stocks
   React.useEffect(() => {
     const date = new Date();
     const hours = date.getHours();
@@ -200,6 +203,7 @@ function Apitest() {
                             marginBottom: "3vh",
                             marginTop: "20px",
                           }}
+                          onClick = {handleBuy}
                         >
                           Buy
                         </button>
