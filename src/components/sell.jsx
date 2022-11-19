@@ -9,7 +9,8 @@ function Sell() {
   const [data, setData] = React.useState(false);
   const [data2, setData2] = React.useState();
   const [canBuy, setCanBuy] = React.useState(0);
-  const [price, setPrice] = React.useState(0);
+  const [price, setPrice] = React.useState('');
+  const [quantity, setQuantity] = React.useState('');
 
   //******************gets current date and time and converts into YYYY-MM-DD HH:mm:00 format because we recive data in interval of 5 minutes********************
   var startdate = moment();
@@ -20,6 +21,12 @@ function Sell() {
     .add(remainder, "minutes")
     .format("YYYY-MM-DD, HH:mm:00");
   console.log("finally done", dateTime);
+
+
+  function handleChangeQuantity(e){
+    const {value} = e.target;
+    setQuantity(value);
+  }
 
 
   async function handleClick2(e) {
@@ -86,8 +93,17 @@ function Sell() {
         <h2 className='m-3'>Stock Current Price: {price}</h2>
         <h2 className='m-3'>Profit: {}</h2>
         <h2 className='m-3 pb-4'>Quantity: {}</h2>
-
+        <div className='d-flex justify-content-center align-items-center'>
+        <input
+              type="text"
+              className="m-2 rounded-pill p-3"
+              placeholder="Quantity"
+              onChange={handleChangeQuantity}
+              style={{width : '10vw', borderRadius:'3rem',height:'4rem',fontSize:'2rem',textAlign:'center', marginLeft :'20vw'}}
+            />
         <center><button  className="btn btn-danger" style={{height: '6vh', width : '16vw',borderRadius:'2rem',fontSize:'1.9rem',alignItems:'center'}}>Sell</button></center>
+        </div>
+
 
     </div>
     <div className='d-flex justify-content-end col-md-6'>
