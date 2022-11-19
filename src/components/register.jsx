@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import SignupImage from '../Assets/signup.svg'
 function Register() {
   const [email, setEmail] = useState("");
   const [name, setContact] = useState("");
@@ -58,22 +58,26 @@ function Register() {
   return (
     <>
       <section
-        className="row justify-content-center align-items-center m-0 p-2"
+        className="justify-content-start row m-0"
         style={{
           height: "100vh",
           width: "100%",
           background: "rgb(34, 33, 35)",
         }}
       >
-        <div className="card col-md-6 p-4">
-          <div className="row justify-content-center">
-            <div className="col-md-9 d-flex flex-column align-items-start">
-              <label className="form-label my-1" style={{ fontSize: "1.5rem" }}>
-                Name
-              </label>
+         <div className="col-md-7 p-4 text-light d-flex align-items-center justify-content-center" style={{backgroundColor:" #040C18"}}>
+         <div className="col-md-7">
+         <div className="col d-flex flex-column align-items-center"style={{border : '1px solid white'}}>
+         <div className="mb-3 row justify-content-center" >
+                <center><h1 className="fw-bold">Register</h1>
+                <p>Get Started with demo cash and start your trading journey</p></center>
+              </div>
+              <center><label className="form-label my-1" style={{ fontSize: "1.5rem" }}>
+               <center> Name</center>
+              </label></center>
               <input
                 type="tel"
-                className="form-control my-1"
+                className="form-control my-1 w-75"
                 id="name"
                 placeholder="Enter Your Name"
                 onChange={nameChange}
@@ -85,7 +89,7 @@ function Register() {
               </label>
               <input
                 type="email"
-                className="form-control my-1"
+                className="form-control my-1 w-75"
                 id="email"
                 placeholder="Eg. abc@xyz.com"
                 onChange={emailChange}
@@ -97,7 +101,7 @@ function Register() {
               </label>
               <input
                 type="password"
-                className="form-control my-1"
+                className="form-control my-1 w-75"
                 id="password"
                 placeholder="Set A Password"
                 onChange={passwordChange}
@@ -109,23 +113,24 @@ function Register() {
               </label>
               <input
                 type="password"
-                className="form-control my-1"
+                className="form-control my-1 w-75"
                 id="confirmPassword"
                 placeholder="Re-Enter The Password"
                 onChange={confirmPasswordChange}
                 value={confirmPassword}
                 style={{ width: "95%" }}
-              />
-              <div className="row w-100 justify-content-center mt-4 mb-3 mx-0">
-                <div
-                  className="btn btn-outline-primary col-md-6 my-1 p-2 rounded-pill"
-                  onClick={registerClick}
-                >
-                  Sign-Up
-                </div>
-              </div>
+              /> <div
+              className="btn btn-outline-success my-5 p-2 rounded-pill w-75"
+              onClick={registerClick}
+            >
+              Sign-Up
+            </div>
+              
             </div>
           </div>
+        </div>
+        <div className="col-md-5  p-4" style={{backgroundColor:" #040C18"}} id = 'fill'>
+        <img src={SignupImage} />
         </div>
       </section>
     </>

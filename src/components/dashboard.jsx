@@ -1,8 +1,54 @@
 import React from "react";
 import "../Css/dashboard.css";
-function dashboard() {
+import data from "./data";
+function Dashboard() {
+  const [credit,setCredit] = React.useState(0);
+  const [topGainer, setTopGainer] = React.useState(0);
+  const [portfolio,setPortfolio] = React.useState([]);
+  const [totalProfite, setTotalProfit] = React.useState(0);
+  const [currentPrice, setCurrentPrice] = React.useState(10000);
+  console.log(data)
+  React.useEffect(()=>{
+    setCredit(data.userData.balance);
+    setPortfolio(data.userData.portfolio);
+  }, [])
+  React.useEffect(()=>{
+    var largest = 0;
+    var sum = 0;
+    for (let i = 0; i < portfolio.length; i++) {
+        sum = sum + (currentPrice - (portfolio[i].price * portfolio[i].qty));
+        if(currentPrice - (portfolio[i].price * portfolio[i].qty) > largest){
+          largest = currentPrice - (portfolio[i].price * portfolio[i].qty);
+        }
+    }
+    setTopGainer(largest);
+    setTotalProfit(sum);
+  
+  }, [portfolio]);
+  function handleClick(e){
+    window.location.href = 'analysis'
+    // console.log(e);
+  }
+  const render = portfolio.map((element, index)=>{
+    console.log(element)
+    return(
+      <tr>
+        <td className='align-items-center'>
+          <p>{element.stock}</p>
+        </td>
+        <td>
+          <p>{element.price}</p>
+          </td>
+        <td>
+          <p class="status completed">element.qty</p>
+        </td>
+        <td>
+          <button onClick={handleClick}>Analysis</button>
+        </td>
+      </tr>
+    )
+  });
   // const allSideMenu = document.querySelectorAll("#sidebar .side-menu.top li a");
-
   // allSideMenu.forEach((item) => {
   //   const li = item.parentElement;
 
@@ -62,49 +108,49 @@ function dashboard() {
   // });
   return (
     <>
-      <section class="dark">
+      <section className="dark">
         <section id="sidebar">
-          <a href="#" class="brand">
-            <i class="bx bxs-smile"></i>
-            <span class="text">AdminHub</span>
+          <a href="#" className="brand">
+            <i className="bx bxs-smile">hi</i>
+            <span className="text">AdminHub</span>
           </a>
-          <ul class="side-menu top">
-            <li class="active">
+          <ul className="side-menu top">
+            <li className="active">
               <a href="#">
-                <i class="bx bxs-dashboard"></i>
-                <span class="text">Dashboard</span>
+                <i className="bx bxs-dashboard"></i>
+                <span className="text">Dashboard</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bx bxs-doughnut-chart"></i>
-                <span class="text">Analytics</span>
+                <i className="bx bxs-doughnut-chart"></i>
+                <span className="text">Analytics</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bx bxs-message-dots"></i>
-                <span class="text">History</span>
+                <i className="bx bxs-message-dots"></i>
+                <span className="text">History</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bx bxs-group"></i>
-                <span class="text">Help</span>
+                <i className="bx bxs-group"></i>
+                <span className="text">Help</span>
               </a>
             </li>
           </ul>
-          <ul class="side-menu">
+          <ul className="side-menu">
             <li>
               <a href="#">
-                <i class="bx bxs-cog"></i>
-                <span class="text">Settings</span>
+                <i className="bx bxs-cog"></i>
+                <span className="text">Settings</span>
               </a>
             </li>
             <li>
-              <a href="#" class="logout">
-                <i class="bx bxs-log-out-circle"></i>
-                <span class="text">Logout</span>
+              <a href="#" className="logout">
+                <i className="bx bxs-log-out-circle"></i>
+                <span className="text">Logout</span>
               </a>
             </li>
           </ul>
@@ -114,35 +160,35 @@ function dashboard() {
         <section id="content">
           {/* <!-- NAVBAR --> */}
           <nav>
-            <i class="bx bx-menu"></i>
-            <a href="#" class="nav-link"></a>
+            <i className="bx bx-menu"></i>
+            <a href="#" className="nav-link"></a>
             <form action="#">
-              <div class="form-input">
+              <div className="form-input">
                 <input type="search" placeholder="Search Stock" />
-                <button type="submit" class="search-btn">
-                  <i class="bx bx-search"></i>
+                <button type="submit" className="search-btn">
+                  <i className="bx bx-search"></i>
                 </button>
               </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden />
-            <label for="switch-mode" class="switch-mode"></label>
+            <label htmlFor="switch-mode" className="switch-mode"></label>
           </nav>
           {/* <!-- NAVBAR --> */}
 
           {/* <!-- MAIN --> */}
           <main style={{backgroundColor : 'white'}}>
-            <div class="head-title">
-              <div class="left">
+            <div className="head-title">
+              <div className="left">
                 <h1>Dashboard</h1>
-                <ul class="breadcrumb">
+                <ul className="breadcrumb">
                   <li>
                     <a href="#">Dashboard</a>
                   </li>
                   <li>
-                    <i class="bx bx-chevron-right"></i>
+                    <i className="bx bx-chevron-right"></i>
                   </li>
                   <li>
-                    <a class="active" href="#">
+                    <a className="active" href="#">
                       Home
                     </a>
                   </li>
@@ -150,110 +196,68 @@ function dashboard() {
               </div>
             </div>
 
-            <ul class="box-info">
+            <ul className="box-info">
               <li>
-                <i class="bx bxs-dollar-circle"></i>
-                <span class="text">
-                  <h3>1020</h3>
+                <i className="bx bxs-dollar-circle"></i>
+                <span className="text">
+                  <h3>{totalProfite}</h3>
                   <p>Profit(+/-)</p>
                 </span>
               </li>
               <li>
-                <i class="bx bxs-group"></i>
-                <span class="text">
-                  <h3>2834</h3>
+                <i className="bx bxs-group"></i>
+                <span className="text">
+                  <h3>{topGainer}</h3>
                   <p>Top Gainer</p>
                 </span>
               </li>
               <li>
-                <i class="bx bxs-dollar-circle"></i>
-                <span class="text">
-                  <h3>$2543</h3>
-                  <p>asdsdksdj</p>
+                <i className="bx bxs-dollar-circle"></i>
+                <span className="text">
+                  <h3>{credit}</h3>
+                  <p>Balance</p>
                 </span>
               </li>
             </ul>
 
-            <div class="table-data">
-              <div class="order">
-                <div class="head">
+            <div className="table-data">
+              <div className="card" style={{width : '35vw'}}>
+                <div className="head">
                   <h3>Portfolio</h3>
                 </div>
                 <table>
                   <thead>
-                    <tr>
-                      <th>Stock</th>
-                      <th>Current Price</th>
-                      <th>Profit(+/-)</th>
+                    <tr >
+                      <th >Stock</th>
+                      <th>Bought Price</th>
+                      <th>Quantity</th>
+                      <th>Analysis</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>
-                        <p>John Doe</p>
-                      </td>
-                      <td>01-10-2021</td>
-                      <td>
-                        <span class="status completed">Completed</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>John Doe</p>
-                      </td>
-                      <td>01-10-2021</td>
-                      <td>
-                        <span class="status pending">Pending</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>John Doe</p>
-                      </td>
-                      <td>01-10-2021</td>
-                      <td>
-                        <span class="status process">Process</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>John Doe</p>
-                      </td>
-                      <td>01-10-2021</td>
-                      <td>
-                        <span class="status pending">Pending</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <p>John Doe</p>
-                      </td>
-                      <td>01-10-2021</td>
-                      <td>
-                        <span class="status completed">Completed</span>
-                      </td>
-                    </tr>
+                    {render}
                   </tbody>
-                </table>
+                  </table>
+
               </div>
-              <div class="todo">
-                <div class="head">
+              <div className="todo">
+                <div className="head">
                   <h3>Top Performers</h3>
                 </div>
-                <ul class="todo-list">
-                  <li class="completed">
+                <ul className="todo-list">
+                  <li className="completed">
                     <p>Todo List</p>
                   </li>
-                  <li class="completed">
+                  <li className="completed">
                     <p>Todo List</p>
                   </li>
-                  <li class="not-completed">
+                  <li className="not-completed">
                     <p>Todo List</p>
                   </li>
-                  <li class="completed">
+                  <li className="completed">
                     <p>Todo List</p>
                   </li>
-                  <li class="not-completed">
+                  <li className="not-completed">
                     <p>Todo List</p>
                   </li>
                 </ul>
@@ -267,4 +271,4 @@ function dashboard() {
   );
 }
 
-export default dashboard;
+export default Dashboard;

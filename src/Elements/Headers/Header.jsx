@@ -2,7 +2,7 @@ import React from "react";
 import StockImage from '../../Assets/stock.svg'
 
 const Header = () => (
-  <div className="header section__padding" id="home">
+  <div className="header section__padding" id="home" style={{paddingBottom: '9rem' , paddingTop: '5rem'}}>
     <div className="header-content p-5">
       <h1 className="gradient__text">Learn stock market</h1>
       <p>
