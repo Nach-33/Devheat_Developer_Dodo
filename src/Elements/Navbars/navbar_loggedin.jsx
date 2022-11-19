@@ -15,27 +15,17 @@ function Navbar_loggedin() {
     <div className="navbar">
       <div className="navbar-links">
         <div className="navbar-links_logo">
-          <h3 style={{ color: "white" }} id="logo">
+          <h3 style = {{color: 'white', paddingRight : '1vw',fontSize:'2.5rem',paddingLeft:'0.1rem',fontWeight:'bolder'}} id="logo">
             PaperMarket
           </h3>
-        </div>
-        <div className="navbar-links_container">
-          <p>
-            <a href="#home">Home</a>
-          </p>
-          <p>
-            <a href="#">About us</a>
-          </p>
-          <p>
-            <a href="#">FAQ</a>
-          </p>
         </div>
       </div>
       <div className="navbar-sign">
         <button
           type="button"
           onClick={handleClickLogout}
-          className=" btn btn-danger mx-4"
+          className=" btn mx-2"
+          style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}
         >
           Logout
         </button>
@@ -43,7 +33,8 @@ function Navbar_loggedin() {
       <div className="navbar-sign">
         <button
           type="button"
-          className="btn btn-primary mx-2"
+          className="btn mx-2"
+          style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}
           onClick={handleClick}
         >
           Prediction Game
@@ -52,18 +43,19 @@ function Navbar_loggedin() {
       <div className="navbar-sign">
         <button
           type="button"
-          className="btn btn-primary mx-2"
+          className="btn mx-2"
           onClick={handleClickBuy}
+          style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}
         >
           Buy
         </button>
       </div>
       <div className="navbar-sign">
-        <button type="button" className="btn btn-primary mx-2">
+        <button type="button" className="btn btn-primary mx-2" style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>
           Dashboard
         </button>
         <div className="navbar-sign">
-          <button type="button" className=" mx-2" id="credits">
+          <button type="button" className=" mx-2" id="credits" style={{borderRadius:'1.4rem',fontWeight:'bold'}}>
             $Credits
           </button>
         </div>
