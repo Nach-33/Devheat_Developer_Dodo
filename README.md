@@ -123,7 +123,7 @@ Python (Machine Learning),Numpy, Pandas, Sklearn, React.js, Node-JS, HTML, CSS,T
 
 - Plotting the candlestick chart on the page.
 
-- 
+- Finding the right API's to get the results.
 ```
 
 ## Developers
