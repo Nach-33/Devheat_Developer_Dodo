@@ -8,13 +8,12 @@
     border-radius: 1rem;
     background: var(--gradient-bar)
 }
-
 .cta-content {
     display: flex;
     flex-direction: column;
-
     text-align: left;
     color: #fff;
+    
 }
 
 .cta-content p {
