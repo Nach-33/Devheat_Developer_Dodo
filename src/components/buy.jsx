@@ -69,22 +69,23 @@ function Apitest() {
     <section>
     <Navbar_loggedin />
       <center>
-        <div className="card  " style={{ width: "50vw", marginBottom : '10vh', marginTop: '2vh', backgroundColor : '#040C18'}}>
-          <h3 style = {{color:'white'}}>Stocks</h3>
+        <div className="card  " style={{ width: "50vw", marginBottom : '8vh', marginTop: '2vh', backgroundColor : '#040C18'}}>
+          <h3 style = {{color:'white', fontWeight:'bolder',fontSize:'3rem',paddingBottom:'1.5rem'}}>Stocks</h3>
           <div>
             <input
               type="text"
               className="m-2 rounded-pill p-3"
               placeholder="Enter stock name"
               onChange={handleChange}
-              style={{width : '25vw', borderRadius:'10%'}}
+              style={{width : '25vw', borderRadius:'3rem',height:'4rem',fontSize:'2rem',textAlign:'center'}}
             />
           </div>
 
           <center className='m-3'>
             <button
               type="button"
-              className=" btn btn-outline-primary my-1 p-2 rounded-pill w-50"
+              className=" btn btn-outline-primary my-1 p-2 rounded-pill"
+              style={{width:'10rem',fontWeight:'bold',fontSize:'1.5rem'}}
               onClick={handleClick2}
               
             >
@@ -104,19 +105,19 @@ function Apitest() {
           //     Buy
           //   </button>
           // </div>
-          <section className="d-flex justify-content-start " style={{width : '100vw'}}>
-            <div className="card col-md-5 mx-4" style={{marginTop : '0vh', maxHeight: '40vh'}}>
-              <h4 className="text-start m-5">Stock Name: {symbol} </h4>
-              <h4 className="text-start m-5">Stock Price: {price}</h4>
-              <h4 className="text-start m-5">Quantity</h4>
-              <center><button className="btn btn-outline-success my-3 p-2 w-50">Buy</button></center>
+          <section className="d-flex justify-content-start " style={{width : '95vw'}}>
+            <div className="card col-md-5 mx-4" style={{marginTop : '0vh', maxHeight: '40vh', borderRadius:'3rem', backgroundColor:'#c1b9b9'}}>
+              <h4 className="text-start m-5 " style={{fontSize:'2rem'}}>Stock Name: {symbol} </h4>
+              <h4 className="text-start m-5" style={{fontSize:'2rem'}}>Stock Price: {price}</h4>
+              <h4 className="text-start m-5" style={{fontSize:'2rem'}}>Quantity: </h4>
+              <center><button className="btn btn-outline-success my-3 p-2" style={{borderRadius:'2rem',width:'24rem' ,fontWeight:'bolder',fontSize:'1.6rem'}}>Buy</button></center>
             </div>
             <div className="md-5" style={{marginLeft : '15vw'}}>
               <img src={Image} alt="" style={{height : '60vh'}} />
             </div>
           </section>
         ) : (
-          <h3 style={{ color: "red" }}>Not available at this time</h3>
+          <h3 style={{ color: "red" ,fontWeight:'bold',fontSize:'3rem'}}>Market is Closed . Not available at this time</h3>
         )}
       </center>
       </section>
