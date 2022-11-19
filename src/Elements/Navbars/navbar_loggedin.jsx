@@ -17,7 +17,7 @@ function Navbar_loggedin() {
     <div className="navbar">
       <div className="navbar-links">
         <div className="navbar-links_logo">
-          <h3 style = {{color: 'white'}} id = 'logo'>LOGO</h3>
+          <h3 style = {{color: 'white'}} id = 'logo'>PaperMarket</h3>
         </div>
         <div className="navbar-links_container">
           <p><a href="#home">Home</a></p>
@@ -33,9 +33,6 @@ function Navbar_loggedin() {
       </div>
       <div className="navbar-sign">
         <button type="button" className = 'btn btn-primary mx-2' onClick={handleClickBuy}>Buy</button>
-      </div>
-      <div className="navbar-sign">
-        <button type="button" className = 'btn btn-primary mx-2' onClick={handleCLickSell}>Sell</button>
       </div>
       <div className="navbar-sign">
         <button type="button" className = 'btn btn-primary mx-2'>Dashboard</button>

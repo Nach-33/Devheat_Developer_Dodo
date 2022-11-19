@@ -17,7 +17,7 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar-links">
         <div className="navbar-links_logo">
-          <h3 style = {{color: 'white', paddingRight : '2vw'}} id = 'logo'>LOGO</h3>
+          <h3 style = {{color: 'white', paddingRight : '2vw'}} id = 'logo' className='gradient__text'>PaperMarket</h3>
         </div>
         <div className="navbar-links_container">
           <p  > <a href="#home">Home</a></p>

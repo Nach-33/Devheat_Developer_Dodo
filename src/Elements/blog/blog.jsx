@@ -9,10 +9,10 @@ function Blog() {
 
   return (
     <>
-      <h1 style={{fontSize: '10vh', paddingLeft : '1.8vw'}} className = "gradient__text">Latest news:</h1>
+      {/* <h1 style={{fontSize: '10vh', paddingLeft : '1.8vw'}} className = "gradient__text">Latest news:</h1>
       <section>
           <h1 className = "gradient__text" style={{paddingLeft : '1.8vw'}}>NAchikets work, make the skeleton</h1>
-      </section>
+      </section> */}
     </>
   );
 }
