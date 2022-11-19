@@ -8,7 +8,6 @@ import Footer from "../Elements/footer/footer";
 function homepage() {
   return (
     <>
-      <div className="App">
         <div className="gradient__bg">
           {/* Renders Components of Homepage before login */}
           <Navbar />
@@ -18,7 +17,6 @@ function homepage() {
           <Blog />
           <Footer />
         </div>
-      </div>
     </>
   );
 }
