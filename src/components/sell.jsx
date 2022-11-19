@@ -37,7 +37,26 @@ function Sell() {
       .then((response) => console.log('hi', response))
       .catch((err) => console.error(err));
   }
-
+  const token = localStorage.getItem("user");
+  const sellStock = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/api/v1/sell", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "BEARER " + token,
+        },
+        body: JSON.stringify({
+          stock: symbol,
+          qty: quantity,
+          price,
+        }),
+      });
+      const data = response.json();
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   //*****************************USEEFFECTS******************************************* */
 
