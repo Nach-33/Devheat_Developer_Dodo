@@ -32,9 +32,6 @@ function Navbar_loggedin() {
         <button type="button" className = 'btn btn-primary mx-2' onClick={handleClickBuy}>Buy</button>
       </div>
       <div className="navbar-sign">
-        <button type="button" className = 'btn btn-primary mx-2' onClick={handleCLickSell}>Sell</button>
-      </div>
-      <div className="navbar-sign">
         <button type="button" className = 'btn btn-primary mx-2'>Dashboard</button>
       <div className="navbar-sign">
         <button type="button" className = ' mx-2' id='credits' >$Credits</button>
