@@ -13,7 +13,7 @@ function Apitest() {
   const [quantity, setQuantity] = React.useState(0);
   //**************** getting key in format YYYY-MM-DD HH:mm:00 so as to acess data recived from api */
   var startdate = moment();
-  startdate = startdate.subtract(2, "days");
+  startdate = startdate.subtract(1, "days");
   startdate = startdate.format("YYYY-MM-DD, HH:mm:00");
   const remainder = 5 - (moment().minutes() % 5);
   const dateTime = moment(startdate)
@@ -75,7 +75,7 @@ function Apitest() {
       console.log("camein");
       setCanBuy(1);
     } else {
-      setCanBuy(1);
+      setCanBuy(0);
     }
   }, []);
 
