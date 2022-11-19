@@ -14,13 +14,13 @@ function Sell() {
 
   //******************gets current date and time and converts into YYYY-MM-DD HH:mm:00 format because we recive data in interval of 5 minutes********************
   var startdate = moment();
-  startdate = startdate.subtract(1, "days");
+  startdate = startdate.subtract(2, "days");
   startdate = startdate.format("YYYY-MM-DD, HH:mm:00");
   const remainder = 5 - (moment().minutes() % 5);
   const dateTime = moment(startdate)
     .add(remainder, "minutes")
-    .format("YYYY-MM-DD, HH:mm:00");
-  console.log("finally done", dateTime);
+    .format("YYYY-MM-DD HH:mm:00");
+  console.log("date", dateTime);
 
 
   function handleChangeQuantity(e){
