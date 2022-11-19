@@ -84,7 +84,7 @@ function Sell() {
       console.log("camein");
       setCanBuy(1);
     } else {
-      setCanBuy(1);
+      setCanBuy(0);
     }
   }, []);
 
@@ -162,7 +162,9 @@ function Sell() {
     <div className='d-flex justify-content-end col-md-6'>
       <img src={Image} alt="" style={{width : '33vw'}} />
     </div>
-    </section>): <h1>Market not open</h1>}
+    </section>): <h3 style={{ color: "red", fontWeight: "bold", fontSize: "3rem" }}>
+              Market is Closed . Not available at this time
+            </h3>}
     <section className='d-flex justify-content-center'>
     </section>
 
