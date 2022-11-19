@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import LoginImg from "../Assets/login.svg"
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -78,8 +79,9 @@ function Login() {
               />
               <div className="row w-100 justify-content-start mt-4 mb-3 mx-0">
                 <div
-                  className="btn btn-outline-primary my-1 p-2 rounded-pill w-75"
+                  className="btn my-1 p-2 rounded-pill"
                   onClick={loginClick}
+                  style={{backgroundColor:'#F49867' ,color:'black',fontWeight:'bold',fontSize:'1.5rem',width:'11rem'}}
                 >
                   Login
                 </div>
@@ -88,8 +90,8 @@ function Login() {
             </div>
           </div>
         </div>
-        <div className="col-md-6  p-4"  >
-
+        <div className="col-md-6  p-4" style={{background:'linear-gradient(89.97deg, #040c18 1.84%, #F49867 102.67%)'}} >
+          <img src={LoginImg} alt="" />
         </div>
       </section>
     </>

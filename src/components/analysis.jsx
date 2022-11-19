@@ -105,55 +105,60 @@ function Apitest() {
   return (
     <>
       <center>
-        <div
-          className="row justify-content-center shadow p-3 mb-5 bg-white rounded"
-          style={{ width: "50vw", border: "1px solid black" }}
-        >
-          <h3>Stocks</h3>
+      <div className="card  " style={{ width: "50vw", marginBottom : '8vh', marginTop: '2vh', backgroundColor : '#040C18'}}>
+          <h3 style = {{color:'white', fontWeight:'bolder',fontSize:'3rem',paddingBottom:'1.5rem'}}>Stocks</h3>
           <div>
             <input
               type="text"
-              className="col-sm-10"
+              className="m-2 rounded-pill p-3"
               placeholder="Enter stock name"
               onChange={handleChange}
-              style={{ maxWidth: "20vw" }}
+              style={{width : '25vw', borderRadius:'3rem',height:'4rem',fontSize:'2rem',textAlign:'center'}}
             />
           </div>
 
-          <button
-            type="button"
-            className="btn btn-success col-sm-5 my-3"
-            onClick={handleClick2}
-          >
-            Success
-          </button>
+          <center className='m-3'>
+            <button
+              type="button"
+              className=" btn btn-outline-primary my-1 p-2 rounded-pill"
+              style={{width:'10rem',fontWeight:'bold',fontSize:'1.5rem'}}
+              onClick={handleClick2}
+              
+            >
+              Search
+            </button>
+          </center>
         </div>
       </center>
       {data3 && (
         <center>
-          <h3> Current Status:</h3>
+          <h3 className="fw-bold " style={{color:'white',fontSize:'2.3rem'}}> Current Status :</h3>
         </center>
       )}
       {data3 && (
-        <center>
+        <center >
           <div
-            className="shadow p-3 mb-5 bg-white rounded"
+            className="shadow p-3 mb-5 bg-white"
             style={{
               backgroundColor: "white",
-              width: "100vw",
-              border: "1px solid black",
+              width: "70vw",
+              borderRadius:'2rem',
+              fontWeight:'bold',
+              fontSize:'2rem'
             }}
           >
             {data3 &&
               Object.keys(data3).map(function (key) {
                 return (
-                  <p>
+
+                  <p className="text-capitalize">
                     {key} : {data3[key]}
+                    
                   </p>
                 );
               })}
             {console.log("graph", graph)}
-            <button onClick={handleClickGraph}>Check Graphical Data</button>
+            <button onClick={handleClickGraph} style={{borderRadius:'2rem',fontSize:'1.5rem',width:'20rem'}}>Check Graphical Data</button>
             {clicked && (
               <div className="container mt-5">
                 <Chart
