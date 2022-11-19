@@ -9,8 +9,11 @@ function Sell() {
   const [data, setData] = React.useState(false);
   const [data2, setData2] = React.useState();
   const [canBuy, setCanBuy] = React.useState(0);
+  const [purchasedPrice, setPurchasedPrice] = React.useState('');
   const [price, setPrice] = React.useState('');
   const [quantity, setQuantity] = React.useState('');
+  const [user,setUser] = React.useState('');
+  const token = localStorage.getItem("user");
 
   //******************gets current date and time and converts into YYYY-MM-DD HH:mm:00 format because we recive data in interval of 5 minutes********************
   var startdate = moment();
@@ -19,7 +22,7 @@ function Sell() {
   const remainder = 5 - (moment().minutes() % 5);
   const dateTime = moment(startdate)
     .add(remainder, "minutes")
-    .format("YYYY-MM-DD HH:mm:00");
+    .format("YYYY-MM-DD 12:35:00");
   console.log("date", dateTime);
 
 
@@ -28,16 +31,6 @@ function Sell() {
     setQuantity(value);
   }
 
-
-  async function handleClick2(e) {
-    const response = await fetch(
-      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=JBQTJBWV8LLJYL6Y`
-    )
-      .then((response) => response.json())
-      .then((response) => console.log('hi', response))
-      .catch((err) => console.error(err));
-  }
-  const token = localStorage.getItem("user");
   const sellStock = async () => {
     try {
       const response = await fetch("http://localhost:4000/api/v1/sell", {
@@ -53,10 +46,28 @@ function Sell() {
         }),
       });
       const data = response.json();
+      setUser(data);
+
     } catch (error) {
       console.log(error);
     }
   };
+  async function handleClick2(e) {
+    const response = await fetch(
+      `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=JBQTJBWV8LLJYL6Y`
+    )
+      .then((response) => response.json())
+      .then((response) => setData(response))
+      .catch((err) => console.error(err));
+
+      sellStock();
+  }
+
+
+  function handleChangeSymbol(e){
+    const {value} = e.target
+    setsymbol(value);
+  }
 
   //*****************************USEEFFECTS******************************************* */
 
@@ -81,7 +92,6 @@ function Sell() {
 
   React.useEffect(() => {
     console.log(data2);
-    //checks in data for the current price at this time.
     for (var i in data2) {
       if (i == dateTime) {
         setPrice(data2[i]["4. close"]);
@@ -90,6 +100,14 @@ function Sell() {
       }
     }
   }, [data2]);
+
+  React.useEffect(()=>{
+    // console.log('jaldi', user.userData.transactions);
+    // for(var i in user.userData.transactions){
+      console.log(user);
+
+    // }
+  }, [price])
 
 
 
@@ -108,6 +126,16 @@ function Sell() {
           backgroundColor : '#040C18'
         }} />
         <h2 className='m-3'>Stock Name: {symbol}</h2>
+        <div className='d-flex justify-content-start align-items-center'>
+        <input
+              type="text"
+              className="m-2 rounded-pill p-3"
+              placeholder="Quantity"
+              onChange={handleChangeSymbol}
+              style={{width : '10vw', borderRadius:'3rem',height:'4rem',fontSize:'2rem',textAlign:'center', marginLeft :'20vw'}}
+            />
+            <button  className="btn btn-success" style={{height: '6vh', width : '7vw',borderRadius:'2rem',fontSize:'1.9rem',alignItems:'center'}} onClick = {handleClick2}>Search</button>
+            </div>
         <h2 className='m-3'>Stock Purchased Price: {}</h2>
         <h2 className='m-3'>Stock Current Price: {price}</h2>
         <h2 className='m-3'>Profit: {}</h2>
@@ -120,7 +148,7 @@ function Sell() {
               onChange={handleChangeQuantity}
               style={{width : '10vw', borderRadius:'3rem',height:'4rem',fontSize:'2rem',textAlign:'center', marginLeft :'20vw'}}
             />
-        <center><button  className="btn btn-danger" style={{height: '6vh', width : '16vw',borderRadius:'2rem',fontSize:'1.9rem',alignItems:'center'}}>Sell</button></center>
+        <center><button  className="btn btn-danger" style={{height: '6vh', width : '16vw',borderRadius:'2rem',fontSize:'1.9rem',alignItems:'center'}} onClick = {sellStock}>Sell</button></center>
         </div>
 
 
