@@ -11,7 +11,6 @@ import Sell from './components/sell';
 import Login from './components/login';
 import Register from './components/register';
 import './App.css'
-import '../node_modules/font-awesome/css/font-awesome.min.css';
 import './Css/header.css'
 import './Css/navbar.css'
 import './Css/feature.css'
