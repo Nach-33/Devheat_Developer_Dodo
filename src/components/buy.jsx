@@ -42,6 +42,7 @@ function Apitest() {
     console.log(quantity);
   }
 
+  const token = localStorage.getItem("user");
   const buyStock = async()=>{
     const response = await fetch('http://localhost:4000/api/v1/dashboard',  {
       method: "POST",
