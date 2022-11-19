@@ -110,7 +110,7 @@ function Apitest() {
               <h4 className="text-start m-5 " style={{fontSize:'2rem'}}>Stock Name: {symbol} </h4>
               <h4 className="text-start m-5" style={{fontSize:'2rem'}}>Stock Price: {price}</h4>
               <h4 className="text-start m-5" style={{fontSize:'2rem'}}>Quantity: </h4>
-              <center><button className="btn btn-outline-success my-3 p-2" style={{borderRadius:'2rem',width:'24rem' ,fontWeight:'bolder',fontSize:'1.6rem'}}>Buy</button></center>
+              <center><button className="btn btn-outline-success " style={{borderRadius:'2rem',width:'24rem' ,fontWeight:'bolder',fontSize:'1.6rem', marginBottom: '3vh'}}>Buy</button></center>
             </div>
             <div className="md-5" style={{marginLeft : '15vw'}}>
               <img src={Image} alt="" style={{height : '60vh'}} />

@@ -66,7 +66,7 @@ function Sell() {
       .
     </div>
     <section className='d-flex justify-content-start my-5' style={{marginLeft : '3vw'}}>
-    <div className='card col-md-5 justify-content-center p-3 pt-1' style={{border : '1px solid white', borderRadius: '5%'}}>
+    <div className='card col-md-5 justify-content-center p-3 pt-1' style={{border : '1px solid white', borderRadius: '5%' , backgroundColor:'#c1b9b9'}}>
     <h1 className='' style={{color : 'black'}}>Sell Stock</h1>
         <hr style={{
           height : '4px',

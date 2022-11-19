@@ -21,6 +21,8 @@ function Apitest() {
 //*************graph properties******************* */
   var options = {
     legend: "none",
+    backgroundColor: '#040C18',
+
   candlestick: {
     fallingColor: { strokeWidth: 0, fill: "#f6465d" }, // red
     risingColor: { strokeWidth: 0, fill: "#0ccb80" }, // green
@@ -66,9 +68,6 @@ function Apitest() {
     for (var i in data2) {
       setData3(data2[i]);
       break;
-    }
-    for (var i in data2) {
-      xaxis.push(i);
     }
     for (var i in data2) {
       for (var j in data2[i]) {
@@ -131,27 +130,51 @@ function Apitest() {
         </div>
       </center>
       {data3 && (
-        <center>
-          <h3 className="fw-bold " style={{color:'white',fontSize:'2.3rem'}}> Current Status :</h3>
-        </center>
+        <center><section style={{border : '1px solid white', borderTopLeftRadius : '25px',borderTopRightRadius : '25px', width : '70vw', background:'radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%)', padding : '2vh'}}>
+          <div>
+            <center><p style={{color:'red', fontSize : '15px'}}>Note: Prediction game costs 50 dollars, right guess gets you half of your money back</p></center>
+            <center><p style={{color:'red', fontSize : '10px'}}>Write probability of stock increasing</p></center>
+          </div>
+        <div className="d-flex justify-content-center">
+
+        <input
+          type="text"
+          className="m-2 rounded-pill p-3"
+          placeholder="%"
+          onChange={handleChange}
+          style={{width : '10vw', borderRadius:'3rem',height:'4rem',fontSize:'2rem',textAlign:'center'}}
+        />
+        <button
+              type="button"
+              className=" btn btn-outline-danger my-1 p-2 rounded-pill"
+              style={{width:'10rem',fontWeight:'bold',fontSize:'1.5rem'}}
+              
+            >Predict</button>
+        
+      </div>
+      </section></center>
       )}
+      
       {data3 && (
         <center >
           <div
-            className="shadow p-3 mb-5 bg-white"
+            className="shadow p-3 mb-5"
             style={{
-              backgroundColor: "white",
               width: "70vw",
-              borderRadius:'2rem',
+              borderBottomLeftRadius: '25px',
+              borderBottomRightRadius: '25px',
               fontWeight:'bold',
-              fontSize:'2rem'
+              fontSize:'2rem',
+              backgroundColor: '#040C18',
+              border : '1px solid white'
             }}
           >
+                <h3 className="fw-bold " style={{color:'white',fontSize:'2.3rem'}}> Previous one day status :</h3>
             {data3 &&
               Object.keys(data3).map(function (key) {
                 return (
 
-                  <p className="text-capitalize">
+                  <p className="text-capitalize" style={{color : 'white'}}>
                     {key} : {data3[key]}
                     
                   </p>
