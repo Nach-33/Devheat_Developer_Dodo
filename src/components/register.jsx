@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import SignupImage from '../Assets/signup.svg'
 function Register() {
   const [email, setEmail] = useState("");
-  const [name, setContact] = useState("");
+  const [name, setName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const emailChange = (event) => {
@@ -11,7 +12,11 @@ function Register() {
   };
   const nameChange = (event) => {
     const { value } = event.target;
-    setContact(value);
+    setName(value);
+  };
+  const usernameChange = (event) => {
+    const { value } = event.target;
+    setUsername(value);
   };
   const passwordChange = (event) => {
     const { value } = event.target;
@@ -24,6 +29,7 @@ function Register() {
   const registerClick = async () => {
     if (
       name === "" ||
+      username === "" ||
       email === "" ||
       password === "" ||
       confirmPassword === ""
@@ -39,6 +45,7 @@ function Register() {
     }
     const requestBody = JSON.stringify({
       name,
+      username,
       email,
       password,
     });
@@ -82,6 +89,18 @@ function Register() {
                 placeholder="Enter Your Name"
                 onChange={nameChange}
                 value={name}
+                style={{ width: "95%" }}
+              />
+              <label className="form-label my-1" style={{ fontSize: "1.5rem" }}>
+                Username
+              </label>
+              <input
+                type="tel"
+                className="form-control my-1 w-75"
+                id="name"
+                placeholder="Enter Your Name"
+                onChange={usernameChange}
+                value={username}
                 style={{ width: "95%" }}
               />
               <label className="form-label my-1" style={{ fontSize: "1.5rem" }}>

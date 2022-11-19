@@ -1,48 +1,67 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 function Dashboard() {
-  const [credit, setCredit] = React.useState(0);
+  // const [credit, setCredit] = React.useState(0);
   const [topGainer, setTopGainer] = React.useState(0);
-  const [portfolio, setPortfolio] = React.useState([]);
+  // const [portfolio, setPortfolio] = React.useState([]);
   const [totalProfite, setTotalProfit] = React.useState(0);
   const [currentPrice, setCurrentPrice] = React.useState(10000);
-  // React.useEffect(() => {
-  //   setCredit(data.userData.balance);
-  //   setPortfolio(data.userData.portfolio);
-  // }, []);
-  React.useEffect(() => {
-    var largest = 0;
-    var sum = 0;
-    for (let i = 0; i < portfolio.length; i++) {
-      sum = sum + (currentPrice - portfolio[i].price * portfolio[i].qty);
-      if (currentPrice - portfolio[i].price * portfolio[i].qty > largest) {
-        largest = currentPrice - portfolio[i].price * portfolio[i].qty;
-      }
+  const [user, setUser] = React.useState({});
+  
+  const token = localStorage.getItem("user");
+  const getData = async () => {
+    console.log("BEARER "+token);
+    try {
+      const response = await fetch("http://localhost:4000/api/v1/dashboard", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": "BEARER "+token,
+        }
+      });
+      const data = await response.json();
+      setUser(data.userData);
+      console.log('here', user);
+    } catch (error) {
+      console.log(error);
     }
-    setTopGainer(largest);
-    setTotalProfit(sum);
-  }, [portfolio]);
+  };
+  React.useEffect(() => {
+    getData();
+  }, [user.balance]);
+  // React.useEffect(() => {
+  //   var largest = 0;
+  //   var sum = 0;
+  //   for (let i = 0; i < portfolio.length; i++) {
+  //     sum = sum + (currentPrice - portfolio[i].price * portfolio[i].qty);
+  //     if (currentPrice - portfolio[i].price * portfolio[i].qty > largest) {
+  //       largest = currentPrice - portfolio[i].price * portfolio[i].qty;
+  //     }
+  //   }
+  //   setTopGainer(largest);
+  //   setTotalProfit(sum);
+  // }, [portfolio]);
   function handleClick(e) {
     window.location.href = "/analysis";
   }
-  const render = portfolio.map((element, index) => {
-    return (
-      <tr>
-        <td className="align-items-center">
-          <p>{element.stock}</p>
-        </td>
-        <td>
-          <p>{element.price}</p>
-        </td>
-        <td>
-          <p class="status completed">element.qty</p>
-        </td>
-        <td>
-          <button onClick={handleClick}>Analysis</button>
-        </td>
-      </tr>
-    );
-  });
+  // const render = portfolio.map((element, index) => {
+  //   return (
+  //     <tr>
+  //       <td className="align-items-center">
+  //         <p>{element.stock}</p>
+  //       </td>
+  //       <td>
+  //         <p>{element.price}</p>
+  //       </td>
+  //       <td>
+  //         <p class="status completed">element.qty</p>
+  //       </td>
+  //       <td>
+  //         <button onClick={handleClick}>Analysis</button>
+  //       </td>
+  //     </tr>
+  //   );
+  // });
   return (
     <>
       <section className="row bg-light m-0 p-0" style={{ height: "100vh" }}>
@@ -106,7 +125,7 @@ function Dashboard() {
                 ></div>
                 <div className="col-7">
                   <h3>Balance</h3>
-                  <h3>$1000</h3>
+                  <h3>${user.balance}</h3>
                 </div>
               </div>
             </div>
@@ -123,24 +142,3 @@ function Dashboard() {
 
 export default Dashboard;
 
-// const [user, setUser] = React.useState("");
-// const token = localStorage.getItem("user");
-// const getData = async () => {
-//   try {
-//     const response = await fetch("http://localhost:4000/api/v1/dashboard", {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ token }),
-//     });
-//     console.log(response);
-//     const { id, email } = await response.json();
-//     setUser({ id, email });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-// React.useEffect(() => {
-//   getData();
-// }, []);

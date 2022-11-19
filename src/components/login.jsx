@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Login() {
-  const [email, setEmail] = useState("");
+  const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const emailChange = (event) => {
     const { value } = event.target;
@@ -13,12 +13,12 @@ function Login() {
     setPassword(value);
   };
   const loginClick = async () => {
-    if (email === "" || password === "") {
+    if (username === "" || password === "") {
       window.alert("No Field can be empty");
       return;
     }
     const requestBody = JSON.stringify({
-      email,
+      username,
       password,
     });
     try {
@@ -58,12 +58,12 @@ function Login() {
                 Email
               </label>
               <input
-                type="email"
+                type="username"
                 className="form-control my-1 w-75"
-                id="email"
+                id="username"
                 placeholder="Eg. abc@xyz.com"
                 onChange={emailChange}
-                value={email}
+                value={username}
               />
               <label className="form-label my-1" style={{ fontSize: "1.3rem" }}>
                 Password
