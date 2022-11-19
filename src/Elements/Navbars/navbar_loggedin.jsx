@@ -83,12 +83,12 @@ function Navbar_loggedin() {
         </button>
       </div>
       <div className="navbar-sign">
-        <button type="button" className="btn btn-primary mx-2" style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>
+        <button type="button" className="btn btn-primary mx-2" onClick={handleClickDashboard} style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>
           Dashboard
         </button>
         <div className="navbar-sign">
           <button type="button" className=" mx-2" id="credits">
-            ${user.balance}
+            ${Math.round(user.balance)}
           </button>
         </div>
       </div>
