@@ -107,12 +107,16 @@ const Sell = async (req, res) => {
     if (!userData) {
       return res.status(400).send({ status: "not ok", msg: "user not found" });
     }
+    
     let portfolio = userData.portfolio;
     let transactionArray = userData.transactions;
     let exists = false;
     portfolio.forEach(async (element) => {
       if (element.stock == stock) {
-        if (element.qty == qty) {
+        if(element.qty<qty){
+          return res.status(400).send({status:'not ok', msg:'invalid qty'})
+        }
+        else if (element.qty == qty) {
           portfolio.remove(element);
           exists = true;
         } else {
@@ -136,6 +140,7 @@ const Sell = async (req, res) => {
       const newUser = await User.findByIdAndUpdate(userData._id, {
         portfolio,
         balance: userData.balance + qty * price,
+        transactions:transactionArray
       });
       return res.status(200).send({ status: "ok", msg: "trade done", newUser });
     } else {
