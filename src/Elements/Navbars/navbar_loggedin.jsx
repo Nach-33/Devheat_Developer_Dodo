@@ -23,18 +23,18 @@ function Navbar_loggedin() {
         </div>
       </div>
       <div className="navbar-sign" >
-        <button type="button" onClick={handleClickLogout} className = ' btn btn-danger mx-4'>Logout</button>
+        <button type="button" onClick={handleClickLogout} className = ' btn mx-2' style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>Logout</button>
       </div>
       <div className="navbar-sign">
-        <button type="button" className = 'btn btn-primary mx-2' onClick={handleClick}>Prediction Game</button>
+        <button type="button" className = 'btn btn-primary mx-2' onClick={handleClick} style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>Prediction Game</button>
       </div>
       <div className="navbar-sign">
-        <button type="button" className = 'btn btn-primary mx-2' onClick={handleClickBuy}>Buy</button>
+        <button type="button" className = 'btn btn-primary mx-2' onClick={handleClickBuy} style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>Buy</button>
       </div>
       <div className="navbar-sign">
-        <button type="button" className = 'btn btn-primary mx-2'>Dashboard</button>
+        <button type="button" className = 'btn btn-primary mx-2' style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>Dashboard</button>
       <div className="navbar-sign">
-        <button type="button" className = ' mx-2' id='credits' >$Credits</button>
+        <button type="button" className = ' mx-2' id='credits' style={{borderRadius:'1.4rem',fontWeight:'bold'}} >$Credits</button>
       </div>
       </div>
     </div>

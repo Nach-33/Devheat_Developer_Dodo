@@ -62,9 +62,10 @@ function Apitest() {
 
   React.useEffect(() => {
     setData2(data["Time Series (5min)"]);
-    console.log(data);
   }, [data]);
 
+
+  //converting data into format required for candlestick graph
   React.useEffect(() => {
     for (var i in data2) {
       setData3(data2[i]);

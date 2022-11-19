@@ -67,7 +67,7 @@ function Apitest() {
   
   //*****************************USEEFFECTS******************************************* */
 
-  //checks if market if open to buy and sell stocks
+  //checks if market is open to buy and sell stocks
   React.useEffect(() => {
     const date = new Date();
     const hours = date.getHours();
