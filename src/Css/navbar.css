@@ -6,6 +6,13 @@
     padding: 2rem 6rem;
 }
 
+#logo{
+    background: linear-gradient(89.97deg, #5bff68 1.84%, #ffb637 102.67%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent
+}
+
 .navbar-links {
     flex: 1;
     display: flex;
