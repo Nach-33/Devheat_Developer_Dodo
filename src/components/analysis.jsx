@@ -1,6 +1,7 @@
 
 import React, { Component } from "react";
 import Chart from "react-google-charts";
+import Navbar_loggedin from "../Elements/Navbars/navbar_loggedin";
 
 function Apitest() {
   //***********************************STATES******************************* */
@@ -103,6 +104,7 @@ function Apitest() {
   }, [data2]);
   return (
     <>
+    <Navbar_loggedin />
       <center>
       <div className="card  " style={{ width: "50vw", marginBottom : '8vh', marginTop: '2vh', backgroundColor : '#040C18'}}>
           <h3 style = {{color:'white', fontWeight:'bolder',fontSize:'3rem',paddingBottom:'1.5rem'}}>Stocks</h3>

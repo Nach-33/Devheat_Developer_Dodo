@@ -4,6 +4,15 @@ function Navbar_loggedin() {
     function handleClickLogout(){
         window.location.href = '/';
     }
+    function handleClick(){
+      window.location.href = '/analysis'
+    }
+    function handleClickBuy(){
+      window.location.href = '/buy'
+    }
+    function handleCLickSell(){
+      window.location.href = '/sell'
+    }
   return (
     <div className="navbar">
       <div className="navbar-links">
@@ -16,11 +25,23 @@ function Navbar_loggedin() {
           <p><a href="#">FAQ</a></p>
         </div>
       </div>
-      <div className="navbar-sign">
-        <button type="button" onClick={handleClickLogout} className = ' btn btn-success mx-4'>Logout</button>
+      <div className="navbar-sign" >
+        <button type="button" onClick={handleClickLogout} className = ' btn btn-danger mx-4'>Logout</button>
       </div>
       <div className="navbar-sign">
-        <button type="button" className = 'mx-4' id='credits'>$Credits</button>
+        <button type="button" className = 'btn btn-primary mx-2' onClick={handleClick}>Prediction Game</button>
+      </div>
+      <div className="navbar-sign">
+        <button type="button" className = 'btn btn-primary mx-2' onClick={handleClickBuy}>Buy</button>
+      </div>
+      <div className="navbar-sign">
+        <button type="button" className = 'btn btn-primary mx-2' onClick={handleCLickSell}>Sell</button>
+      </div>
+      <div className="navbar-sign">
+        <button type="button" className = 'btn btn-primary mx-2'>Dashboard</button>
+      <div className="navbar-sign">
+        <button type="button" className = ' mx-2' id='credits' >$Credits</button>
+      </div>
       </div>
     </div>
   )

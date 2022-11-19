@@ -9,6 +9,9 @@ const Navbar = () => {
   function handleClickLogin(){
     window.location.href = 'login'
   }
+  function handlePredictionClick(){
+    window.location.href = 'login'
+  }
 
   return (
     <div className="navbar">
@@ -26,7 +29,10 @@ const Navbar = () => {
         <button type="button" onClick={handleClickLogin} className = 'mx-4'>Login</button>
       </div>
       <div className="navbar-sign">
-        <button type="button" onClick={handleRegisterClick}>Sign up</button>
+        <button type="button" onClick={handleRegisterClick} >Sign up</button>
+      </div>
+      <div className="navbar-sign">
+        <button type="button" onClick={handlePredictionClick} className = 'mx-4'>Prediction Game</button>
       </div>
       {/* <div className="gpt3__navbar-menu">
         {toggleMenu
