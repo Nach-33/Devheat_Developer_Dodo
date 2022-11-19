@@ -66,7 +66,7 @@ function Sell() {
       .
     </div>
     <section className='d-flex justify-content-start my-5' style={{marginLeft : '3vw'}}>
-    <div className='card col-md-6 justify-content-center p-3' style={{border : '1px solid white', borderRadius: '5%'}}>
+    <div className='card col-md-5 justify-content-center p-3 pt-1' style={{border : '1px solid white', borderRadius: '5%'}}>
     <h1 className='' style={{color : 'black'}}>Sell Stock</h1>
         <hr style={{
           height : '4px',
@@ -77,9 +77,9 @@ function Sell() {
         <h2 className='m-3'>Stock Purchased Price: </h2>
         <h2 className='m-3'>Stock Current Price: </h2>
         <h2 className='m-3'>Profit: </h2>
-        <h2 className='m-3'>Quantity: </h2>
+        <h2 className='m-3 pb-4'>Quantity: </h2>
 
-        <center><button  className="btn btn-danger" style={{height: '5vh', width : '20vw'}}>Sell</button></center>
+        <center><button  className="btn btn-danger" style={{height: '6vh', width : '16vw',borderRadius:'2rem',fontSize:'1.9rem',alignItems:'center'}}>Sell</button></center>
 
     </div>
     <div className='d-flex justify-content-end col-md-6'>
