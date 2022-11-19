@@ -65,16 +65,16 @@ function Register() {
           background: "rgb(34, 33, 35)",
         }}
       >
-         <div className="col-md-7 p-4 text-light d-flex align-items-center justify-content-center" style={{backgroundColor:" #040C18"}}>
+         <div className="col-md-6 p-4 text-light d-flex align-items-center justify-content-center" style={{backgroundColor:"#040C18"}}>
          <div className="col-md-7">
-         <div className="col d-flex flex-column align-items-center"style={{border : '1px solid white'}}>
-         <div className="mb-3 row justify-content-center" >
-                <center><h1 className="fw-bold">Register</h1>
-                <p>Get Started with demo cash and start your trading journey</p></center>
+         <div className="col d-flex flex-column align-items-start">
+         <div className="mb-3">
+                <h1 className="fw-bold">Register</h1>
+                <p>Get Started with demo cash and start your trading journey</p>
               </div>
-              <center><label className="form-label my-1" style={{ fontSize: "1.5rem" }}>
-               <center> Name</center>
-              </label></center>
+              <label className="form-label my-1" style={{ fontSize: "1.5rem" }}>
+                Name
+              </label>
               <input
                 type="tel"
                 className="form-control my-1 w-75"
@@ -119,19 +119,21 @@ function Register() {
                 onChange={confirmPasswordChange}
                 value={confirmPassword}
                 style={{ width: "95%" }}
-              /> <div
-              className="btn btn-outline-success my-5 p-2 rounded-pill w-75"
-              onClick={registerClick}
-            >
-              Sign-Up
-            </div>
-              
+              />
+              <div className="row w-100 justify-content-start mt-4 mb-3 mx-0">
+                <div
+                  className="btn btn-outline-success my-1 p-2 rounded-pill w-75"
+                  onClick={registerClick}
+                >
+                  Sign-Up
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div className="col-md-5  p-4" style={{backgroundColor:" #040C18"}} id = 'fill'>
-        <img src={SignupImage} />
-        </div>
+        <div className="col-md-6  p-4" >
+
+</div>
       </section>
     </>
   );

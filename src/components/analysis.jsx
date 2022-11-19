@@ -137,7 +137,7 @@ function Apitest() {
             }}
           >
         
-            <div style={{marginLeft : '6vw'}}>
+            <div style={{marginLeft : '6vw', border : '1px solid white', maxWidth : '86.5vw', paddingLeft : '2vw', paddingTop : '2vh', paddingBottom : '2vh'}}>
                 <h4>Purchased Price: </h4>
                 <h4>Purchased Date: </h4>
                 <h4>Current Price: </h4>

@@ -4,6 +4,7 @@ import Header from "../Elements/Headers/Header";
 import Feautres from "../Elements/feautres/Feautres";
 import Homepagesignup from "../Elements/Homepagesignup/Homepagesignup";
 import Blog from "../Elements/blog/blog";
+import Footer from "../Elements/footer/footer";
 function homepage() {
   return (
     <>
@@ -14,6 +15,7 @@ function homepage() {
           <Feautres />
           <Homepagesignup />
           <Blog />
+          <Footer />
         </div>
       </div>
     </>

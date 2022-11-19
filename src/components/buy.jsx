@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Chart from "react-google-charts";
+import Image from '../Assets/buy.svg'
+import Navbar_loggedin from "../Elements/Navbars/navbar_loggedin";
 const moment = require("moment");
 function Apitest() {
   //***********************************STATES******************************* */
@@ -9,14 +11,14 @@ function Apitest() {
   const [canBuy, setCanBuy] = React.useState(0);
   const [price, setPrice] = React.useState(0);
   const Display = <h2 style={{ color: "red" }}>Not available at this time</h2>;
-  //*************graph properties******************* */
+  //*************graph properties******************************** */
   var startdate = moment();
-  startdate = startdate.subtract(2, "days");
+  startdate = startdate.subtract(1, "days");
   startdate = startdate.format("YYYY-MM-DD, HH:mm:00 a");
   const remainder = 5 - (moment().minutes() % 5);
   const dateTime = moment(startdate)
     .add(remainder, "minutes")
-    .format("YYYY-MM-DD, HH:mm:00 a");
+    .format("YYYY-MM-DD HH:mm:00");
   console.log("finally done", dateTime);
 
   //**********************************FUNCTIONS****************************** */
@@ -44,7 +46,7 @@ function Apitest() {
     }
   }, []);
 
-  
+
   React.useEffect(() => {
     setData2(data["Time Series (5min)"]);
   }, [data]);
@@ -52,58 +54,98 @@ function Apitest() {
 
 
   React.useEffect(() => {
-    console.log(data2);
+
+    console.log('data2', data2);
     for (var i in data2) {
       if (i == dateTime) {
         setPrice(data2[i]["4. close"]);
         break;
-      } else {
       }
     }
   }, [data2]);
 
   return (
     <>
+    <section>
+    <Navbar_loggedin />
       <center>
-        <div className="card m-3 mb-5" style={{ width: "50vw" }}>
-          <h3>Stocks</h3>
+        <div className="card  " style={{ width: "50vw", marginBottom : '10vh', marginTop: '2vh', backgroundColor : '#040C18'}}>
+          <h3 style = {{color:'white'}}>Stocks</h3>
           <div>
             <input
               type="text"
-              className=""
+              className="m-2 rounded-pill p-3"
               placeholder="Enter stock name"
               onChange={handleChange}
+              style={{width : '25vw', borderRadius:'10%'}}
             />
           </div>
 
-          <center>
+          <center className='m-3'>
             <button
               type="button"
-              className="btn btn-success"
+              className=" btn btn-outline-primary my-1 p-2 rounded-pill w-50"
               onClick={handleClick2}
+              
             >
-              Success
+              Search
             </button>
           </center>
         </div>
         {canBuy ? (
-          <div className="d-flex m-5" style={{ backgroundColor: "white" }}>
-            <h2 className="mx-5">Stock Name</h2>
-            <h2 className="mx-5">Price</h2>
-            <h2 className="mx-5">select Quantity</h2>
-            <button
-              className="btn btn-danger"
-              style={{ marginLeft: "auto", width: "10vw" }}
-            >
-              Buy
-            </button>
-          </div>
+          // <div className="d-flex m-5" style={{ backgroundColor: "white" }}>
+          //   <h2 className="mx-5">Stock Name</h2>
+          //   <h2 className="mx-5">Price</h2>
+          //   <h2 className="mx-5">select Quantity</h2>
+          //   <button
+          //     className="btn btn-danger"
+          //     style={{ marginLeft: "auto", width: "10vw" }}
+          //   >
+          //     Buy
+          //   </button>
+          // </div>
+          <section className="d-flex justify-content-start " style={{width : '100vw'}}>
+            <div className="card col-md-5 mx-4" style={{marginTop : '0vh', maxHeight: '40vh'}}>
+              <h4 className="text-start m-5">Stock Name: {symbol} </h4>
+              <h4 className="text-start m-5">Stock Price: {price}</h4>
+              <h4 className="text-start m-5">Quantity</h4>
+              <center><button className="btn btn-outline-success my-3 p-2 w-50">Buy</button></center>
+            </div>
+            <div className="md-5" style={{marginLeft : '15vw'}}>
+              <img src={Image} alt="" style={{height : '60vh'}} />
+            </div>
+          </section>
         ) : (
           <h3 style={{ color: "red" }}>Not available at this time</h3>
         )}
       </center>
+      </section>
     </>
   );
 }
 
 export default Apitest;
+
+// <div className='m-5'>
+//     </div>
+    // <section className='d-flex justify-content-start my-5' style={{marginLeft : '3vw'}}>
+    // <div className='card col-md-6 justify-content-center p-3' style={{border : '1px solid white', borderRadius: '5%'}}>
+    // <h1 className='' style={{color : 'black'}}>Sell Stock</h1>
+    //     <hr style={{
+    //       height : '4px',
+    //       color: '#040C18',
+    //       backgroundColor : '#040C18'
+    //     }} />
+    //     <h2 className='m-3'>Stock Name: </h2>
+    //     <h2 className='m-3'>Stock Purchased Price: </h2>
+    //     <h2 className='m-3'>Stock Current Price: </h2>
+    //     <h2 className='m-3'>Profit: </h2>
+    //     <center><button  className="btn btn-danger" style={{height: '5vh', width : '20vw'}}>Sell</button></center>
+
+    // </div>
+    // <div className='d-flex justify-content-end col-md-6'>
+    //   <img src={Image} alt="" style={{width : '33vw'}} />
+    // </div>
+    // </section>
+    // <section className='d-flex justify-content-center'>
+    // </section>
