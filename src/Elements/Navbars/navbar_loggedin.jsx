@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 
 function Navbar_loggedin() {
   function handleClickLogout() {
@@ -10,6 +10,38 @@ function Navbar_loggedin() {
   }
   function handleClickBuy() {
     window.location.href = "/buy";
+  }
+  function handleClickDashboard() {
+    window.location.href = "/dashboard";
+  }
+  const [user, setUser] = useState({
+    username:'',
+    portfolio: [],
+    transactions: [],
+    balance: 0,
+  });
+
+  const token = localStorage.getItem("user");
+  const getData = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/api/v1/dashboard", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "BEARER " + token,
+        },
+      });
+      const data = await response.json();
+      setUser(data.userData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(()=>{
+    getData();
+  },[]);
+  if(user.username==''){
+    return(<h1 className="text-center text-danger mt-4">Not Authorized to Access this Route</h1>)
   }
   return (
     <div className="navbar">
@@ -64,7 +96,7 @@ function Navbar_loggedin() {
         </button>
         <div className="navbar-sign">
           <button type="button" className=" mx-2" id="credits">
-            $Credits
+            ${user.balance}
           </button>
         </div>
       </div>
