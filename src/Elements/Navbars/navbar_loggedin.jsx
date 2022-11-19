@@ -11,6 +11,9 @@ function Navbar_loggedin() {
   function handleClickBuy() {
     window.location.href = "/buy";
   }
+  function handleClickSell() {
+    window.location.href = "/sell";
+  }
   function handleClickDashboard() {
     window.location.href = "/dashboard";
   }
@@ -80,6 +83,16 @@ function Navbar_loggedin() {
           style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}
         >
           Buy
+        </button>
+      </div>
+      <div className="navbar-sign">
+        <button
+          type="button"
+          className="btn mx-2"
+          onClick={handleClickSell}
+          style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}
+        >
+          Sell
         </button>
       </div>
       <div className="navbar-sign">

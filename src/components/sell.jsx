@@ -9,7 +9,7 @@ function Sell() {
   const [data, setData] = React.useState(false);
   const [data2, setData2] = React.useState();
   const [canBuy, setCanBuy] = React.useState(0);
-  const [purchasedPrice, setPurchasedPrice] = React.useState('');
+  const [error, setError] = React.useState(false);
   const [price, setPrice] = React.useState('');
   const [quantity, setQuantity] = React.useState('');
   const [user,setUser] = React.useState('');
@@ -34,24 +34,26 @@ function Sell() {
   const sellStock = async () => {
     try {
       const response = await fetch("http://localhost:4000/api/v1/sell", {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: "BEARER " + token,
         },
         body: JSON.stringify({
           stock: symbol,
-          qty: quantity,
-          price,
+          qty: Number(quantity),
+          price:Number(price),
         }),
       });
-      const data = response.json();
-      setUser(data);
-
+      const data = await response.json();
+      if(data.status == "not ok"){
+        setError(true)
+      }
     } catch (error) {
       console.log(error);
     }
   };
+
   async function handleClick2(e) {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=JBQTJBWV8LLJYL6Y`
@@ -59,8 +61,6 @@ function Sell() {
       .then((response) => response.json())
       .then((response) => setData(response))
       .catch((err) => console.error(err));
-
-      sellStock();
   }
 
 
@@ -70,7 +70,12 @@ function Sell() {
   }
 
   //*****************************USEEFFECTS******************************************* */
-
+  React.useEffect(()=>{
+    if(error == true){
+      setError(false);
+      window.alert("Please enter valid quantity")
+    }
+  },[error])
   //checks if stock market is open to buy and sell
   React.useEffect(() => {
     const date = new Date();
@@ -79,7 +84,7 @@ function Sell() {
       console.log("camein");
       setCanBuy(1);
     } else {
-      setCanBuy(0);
+      setCanBuy(1);
     }
   }, []);
 
@@ -117,6 +122,7 @@ function Sell() {
     <div className='m-5'>
       .
     </div>
+    {canBuy ?(
     <section className='d-flex justify-content-start my-5' style={{marginLeft : '3vw'}}>
     <div className='card col-md-5 justify-content-center p-3 pt-1' style={{border : '1px solid white', borderRadius: '5%' , backgroundColor:'#c1b9b9'}}>
     <h1 className='' style={{color : 'black'}}>Sell Stock</h1>
@@ -156,7 +162,7 @@ function Sell() {
     <div className='d-flex justify-content-end col-md-6'>
       <img src={Image} alt="" style={{width : '33vw'}} />
     </div>
-    </section>
+    </section>): <h1>Market not open</h1>}
     <section className='d-flex justify-content-center'>
     </section>
 

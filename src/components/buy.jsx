@@ -11,12 +11,6 @@ function Apitest() {
   const [canBuy, setCanBuy] = React.useState(0);
   const [price, setPrice] = React.useState("");
   const [quantity, setQuantity] = React.useState(0);
-  const [user, setUser] = React.useState({
-    username: "",
-    portfolio: [],
-    transactions: [],
-    balance: 0,
-  });
   const token = localStorage.getItem("user");
   //**************** getting key in format YYYY-MM-DD HH:mm:00 so as to acess data recived from api */
   var startdate = moment();
@@ -67,23 +61,6 @@ function Apitest() {
       console.log(error);
     }
   };
-
-  const getData = async () => {
-    try {
-      const response = await fetch("http://localhost:4000/api/v1/dashboard", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "BEARER " + token,
-        },
-      });
-      const data = await response.json();
-      setUser(data.userData);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   //*****************************USEEFFECTS******************************************* */
   // React.useEffect(() => {
   //   getData();
