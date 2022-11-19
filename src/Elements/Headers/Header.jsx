@@ -2,15 +2,11 @@ import React from "react";
 import StockImage from '../../Assets/stock.svg'
 
 const Header = () => (
-  <div className="header section__padding" id="home" style={{paddingBottom: '9rem' , paddingTop: '5rem'}}>
+  <div className="header section__padding" id="home" style={{paddingBottom: '9rem' , paddingTop: '2rem'}}>
     <div className="header-content p-5">
-      <h1 className="gradient__text">Learn stock market</h1>
+      <h1 className="gradient__text">Skill up and practice zero-risk trading on our free 'website name' account.</h1>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa odio nemo
-        dolor excepturi mollitia? Natus debitis dolorem cupiditate hic tempore
-        aliquid voluptatibus, sed ipsa nobis optio, nam nihil voluptates eum?
-        Commodi, repellat? Magnam fugiat fugit maiores quo asperiores amet
-        quidem?
+      New to trading and a bit hesitant? Our 'websitename' account is the perfect way to explore all of our instruments and test your trading strategies using entirely virtual funds - with none of the risk.
       </p>
     </div>
 

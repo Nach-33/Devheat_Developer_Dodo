@@ -17,7 +17,10 @@ function Navbar_loggedin() {
         </div>
       </div>
       <div className="navbar-sign">
-        <button type="button" onClick={handleClickLogout} className = 'mx-4'>Logout</button>
+        <button type="button" onClick={handleClickLogout} className = ' btn btn-success mx-4'>Logout</button>
+      </div>
+      <div className="navbar-sign">
+        <button type="button" className = 'mx-4' id='credits'>$Credits</button>
       </div>
     </div>
   )

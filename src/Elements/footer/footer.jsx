@@ -6,16 +6,15 @@ function footer() {
     }
   return (
     <>
-    <div className="footer section__padding my-4">
+    <div className="footer section__padding" style={{marginTop : '7vh'}}>
     <div className="footer-links" style={{borderTop : '1px solid white'}}>
       <div className="footer-links_logo">
-        <p>Crechterwoord K12 182 DK Alknjkcb, <br /> All Rights Reserved</p>
+        <p>Indian Institute of Information Technology, Surat. <br /> <br /> Devheat 2022</p>
       </div>
-      <div className="footer-links_div">
-        <h4>Links</h4>
-        <p>Overons</p>
+      <div className="footer-links_div" style={{textDecoration: 'underline'}}>
+        <h4>Follow us</h4>
+        <p>Github</p>
         <p>Social Media</p>
-        <p>Counters</p>
         <p>Contact</p>
       </div>
       <div className="footer-links_div">
@@ -26,14 +25,14 @@ function footer() {
       </div>
       <div className="footer-links_div">
         <h4>Get in touch</h4>
-        <p>Crechterwoord K12 182 DK Alknjkcb</p>
-        <p>085-132567</p>
+        <p>Compnay name</p>
+        <p>Linkedin</p>
         <p>info@payme.net</p>
       </div>
     </div>
 
     <div className="footer-copyright">
-      <p>@2021 GPT-3. All rights reserved.</p>
+      <p>@2022 Developer_Dodo. All rights reserved.</p>
     </div>
   </div>
     </>

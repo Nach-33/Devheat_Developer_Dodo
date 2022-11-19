@@ -3,31 +3,27 @@ import Feature from './Feautre';
 
 const featuresData = [
   {
-    title: 'Improving end distrusts instantly',
-    text: 'From they fine john he give of rich he. They age and draw mrs like. Improving end distrusts may instantly was household applauded.',
+    title: 'AI Prediction Model',
   },
   {
-    title: 'Become the tended active',
-    text: 'Considered sympathize ten uncommonly occasional assistance sufficient not. Letter of on become he tended active enable to.',
+    title: 'True to real trading',
   },
   {
-    title: 'Message or am nothing',
-    text: 'Led ask possible mistress relation elegance eat likewise debating. By message or am nothing amongst chiefly address.',
+    title: 'Build and test your strategies',
   },
   {
-    title: 'Really boy law county',
-    text: 'Really boy law county she unable her sister. Feet you off its like like six. Among sex are leave law built now. In built table in an rapid blush..',
+    title: 'Get to know your trading platform',
   },
 ];
 
 const Features = () => (
-  <div className="features section__padding pb-5 px-5 d-flex justify-content-space-around" id="features ">
-    <div className="features-heading">
-      <h3 className="gradient__text" style = {{maxWidth : '40vw'}}>The Future is Now and You Just Need to Realize It. Step into Future Today. & Make it Happen.</h3>
+  <div className="d-flex justify-content-space-around" style={{width: '100vw'}} id="features ">
+    <div className="">
+      <h3 className="gradient__text col-md-7" style = {{ fontSize : '30px', paddingLeft : '2vw'}}>The Future is Now and You Just Need to Realize It. Step into Future Today. & Make it Happen.</h3>
     </div>
-    <div className="features-container">
+    <div className=" d-flex col-md-5" >
       {featuresData.map((item, index) => (
-        <Feature title={item.title} text={item.text} key={item.title + index} />
+        <Feature title={item.title}key={item.title + index} />
       ))}
     </div>
   </div>
