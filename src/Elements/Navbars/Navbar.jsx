@@ -23,13 +23,13 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-sign">
-        <button type="button" onClick={handleClickLogin} className = 'mx-4'>Login</button>
+        <button type="button" onClick={handleClickLogin} className = 'mx-4' style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>Login</button>
       </div>
       <div className="navbar-sign">
-        <button type="button" onClick={handleRegisterClick} >Sign up</button>
+        <button type="button" onClick={handleRegisterClick} style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}} >Sign up</button>
       </div>
       <div className="navbar-sign">
-        <button type="button" onClick={handlePredictionClick} className = 'mx-4'>Prediction Game</button>
+        <button type="button" onClick={handlePredictionClick} className = 'mx-4' style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>Prediction Game</button>
       </div>
       {/* <div className="gpt3__navbar-menu">
         {toggleMenu
