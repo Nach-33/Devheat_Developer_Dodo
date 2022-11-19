@@ -3,8 +3,8 @@ import Chart from "react-google-charts";
 
 function Apitest() {
   //***********************************STATES******************************* */
-  const [symbol, setsymbol] = React.useState("");
-  const [data, setData] = React.useState(false);
+  const [symbol, setsymbol] = React.useState("AAPL");
+  const [data, setData] = React.useState('');
   const [data2, setData2] = React.useState();
   const [data3, setData3] = React.useState("");
   const [xaxis, setXaxis] = React.useState([]);
@@ -33,11 +33,9 @@ function Apitest() {
   }
 
   //**********************************FUNCTIONS****************************** */
-  function handleChange(e) {
-    const { value } = e.target;
-    setsymbol(value);
-  }
+  
   async function handleClick2(e) {
+    console.log('fetching1');
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=JBQTJBWV8LLJYL6Y`
     )
@@ -46,6 +44,8 @@ function Apitest() {
       .catch((err) => console.error(err));
   }
   function handleClickGraph() {
+    console.log('fetching2');
+
     setClicked("hello");
 
     class GoogleChart extends Component {
@@ -57,11 +57,15 @@ function Apitest() {
   //*****************************USEEFFECTS******************************************* */
 
   React.useEffect(() => {
+    console.log('fetching3');
+
     setData2(data["Time Series (5min)"]);
     console.log(data);
   }, [data]);
 
   React.useEffect(() => {
+    console.log('fetching4');
+
     for (var i in data2) {
       setData3(data2[i]);
       break;
@@ -109,15 +113,6 @@ function Apitest() {
           style={{ width: "50vw", border: "1px solid black" }}
         >
           <h3>Stocks</h3>
-          <div>
-            <input
-              type="text"
-              className="col-sm-10"
-              placeholder="Enter stock name"
-              onChange={handleChange}
-              style={{ maxWidth: "20vw" }}
-            />
-          </div>
 
           <button
             type="button"

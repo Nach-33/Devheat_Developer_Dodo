@@ -23,12 +23,12 @@ function Dashboard() {
     }
     setTopGainer(largest);
     setTotalProfit(sum);
-    console.log('portfolio', portfolio);
   
   }, [portfolio]);
-  React.useEffect(()=>{
-    console.log('topgainer', topGainer);
-  })
+  function handleClick(e){
+    window.location.href = 'analysis'
+    // console.log(e);
+  }
   const render = portfolio.map((element, index)=>{
     console.log(element)
     return(
@@ -41,6 +41,9 @@ function Dashboard() {
           </td>
         <td>
           <p class="status completed">element.qty</p>
+        </td>
+        <td>
+          <button onClick={handleClick}>Analysis</button>
         </td>
       </tr>
     )
@@ -168,7 +171,7 @@ function Dashboard() {
               </div>
             </form>
             <input type="checkbox" id="switch-mode" hidden />
-            <label for="switch-mode" className="switch-mode"></label>
+            <label htmlFor="switch-mode" className="switch-mode"></label>
           </nav>
           {/* <!-- NAVBAR --> */}
 
@@ -228,6 +231,7 @@ function Dashboard() {
                       <th >Stock</th>
                       <th>Bought Price</th>
                       <th>Quantity</th>
+                      <th>Analysis</th>
                     </tr>
                   </thead>
                   <tbody>

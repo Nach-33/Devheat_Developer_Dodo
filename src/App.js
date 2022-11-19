@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.js";
 import Homepage from './components/homepage';
-import Stock from './components/stock';
 import Homepage2 from './components/homepage2';
 import Dashboard from './components/dashboard';
 import Buy from './components/buy';
@@ -20,13 +19,12 @@ import './Css/cta.css'
 import './Css/blog.css'
 import './Css/article.css'
 import './Css/register.css'
-
+import Analysis from './components/analysis';
 function App() {
   return (
     <>
       <BrowserRouter>
       <Routes>
-      <Route exact path="/stock" element={<Stock/>} />
       <Route exact path="/" element={<Homepage />} />
       <Route exact path="/in" element={<Homepage2 />} />
       <Route exact path="/dashboard" element={<Dashboard />} />
@@ -34,6 +32,8 @@ function App() {
       <Route exact path="/sell" element={<Sell />} />
       <Route exact path="/login" element={<Login />} />
       <Route exact path="/register" element={<Register />} />
+      <Route exact path="/analysis" element={<Analysis />} />
+
       </Routes>
       </BrowserRouter>
     </>
