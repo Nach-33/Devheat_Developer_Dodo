@@ -11,14 +11,21 @@ function Apitest() {
   const [canBuy, setCanBuy] = React.useState(0);
   const [price, setPrice] = React.useState("");
   const [quantity, setQuantity] = React.useState(0);
+  const [user, setUser] = React.useState({
+    username: "",
+    portfolio: [],
+    transactions: [],
+    balance: 0,
+  });
+  const token = localStorage.getItem("user");
   //**************** getting key in format YYYY-MM-DD HH:mm:00 so as to acess data recived from api */
   var startdate = moment();
-  startdate = startdate.subtract(1, "days");
+  startdate = startdate.subtract(2, "days");
   startdate = startdate.format("YYYY-MM-DD, HH:mm:00");
   const remainder = 5 - (moment().minutes() % 5);
   const dateTime = moment(startdate)
     .add(remainder, "minutes")
-    .format("YYYY-MM-DD HH:mm:00");
+    .format("YYYY-MM-DD 12:30:00");
   console.log("date", dateTime);
   //**********************************FUNCTIONS****************************** */
   //sets user input in symbol
@@ -40,31 +47,54 @@ function Apitest() {
     setQuantity(value);
     console.log(quantity);
   }
-  function handleBuy(){
-    const token = localStorage.getItem("user");
-    const buyStock = async () => {
+  const buyStock = async () => {
     try {
       const response = await fetch("http://localhost:4000/api/v1/buy", {
-        method: "POST",
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
           Authorization: "BEARER " + token,
         },
         body: JSON.stringify({
           stock: symbol,
-          qty: quantity,
-          price,
+          qty: Number(quantity),
+          price:Number(price),
         }),
       });
-      const data = response.json();
+      const data = await response.json();
+      console.log(data);
     } catch (error) {
       console.log(error);
     }
   };
-  }
 
-  
+  const getData = async () => {
+    try {
+      const response = await fetch("http://localhost:4000/api/v1/dashboard", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "BEARER " + token,
+        },
+      });
+      const data = await response.json();
+      setUser(data.userData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   //*****************************USEEFFECTS******************************************* */
+  // React.useEffect(() => {
+  //   getData();
+  //   if (user.username == "") {
+  //     return (
+  //       <h1 className="text-center text-danger mt-4">
+  //         Not Authorized to Access this Route
+  //       </h1>
+  //     );
+  //   }
+  // }, []);
 
   //checks if market is open to buy and sell stocks
   React.useEffect(() => {
@@ -74,7 +104,7 @@ function Apitest() {
       console.log("camein");
       setCanBuy(1);
     } else {
-      setCanBuy(0);
+      setCanBuy(1);
     }
   }, []);
 
@@ -203,7 +233,7 @@ function Apitest() {
                             marginBottom: "3vh",
                             marginTop: "20px",
                           }}
-                          onClick = {handleBuy}
+                          onClick={buyStock}
                         >
                           Buy
                         </button>
