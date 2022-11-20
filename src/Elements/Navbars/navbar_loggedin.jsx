@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 
 function Navbar_loggedin() {
   function handleClickLogout() {
@@ -18,7 +18,7 @@ function Navbar_loggedin() {
     window.location.href = "/dashboard";
   }
   const [user, setUser] = useState({
-    username:'',
+    username: "",
     portfolio: [],
     transactions: [],
     balance: 0,
@@ -40,17 +40,26 @@ function Navbar_loggedin() {
       console.log(error);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     getData();
-  },[]);
-  if(user.username==''){
-    return(<h1 className="text-center text-danger mt-4">Not Authorized to Access this Route</h1>)
+  }, []);
+  if (user.username == "") {
+    window.location.href = "/login";
   }
   return (
     <div className="navbar">
       <div className="navbar-links">
         <div className="navbar-links_logo">
-          <h3 style = {{color: 'white', paddingRight : '1vw',fontSize:'2.5rem',paddingLeft:'0.1rem',fontWeight:'bolder'}} id="logo">
+          <h3
+            style={{
+              color: "white",
+              paddingRight: "1vw",
+              fontSize: "2.5rem",
+              paddingLeft: "0.1rem",
+              fontWeight: "bolder",
+            }}
+            id="logo"
+          >
             PaperMarket
           </h3>
         </div>
@@ -60,7 +69,12 @@ function Navbar_loggedin() {
           type="button"
           onClick={handleClickLogout}
           className=" btn mx-2"
-          style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}
+          style={{
+            borderRadius: "1.4rem",
+            backgroundColor: "#5c11ac",
+            color: "#efbdf4",
+            fontWeight: "bold",
+          }}
         >
           Logout
         </button>
@@ -69,7 +83,12 @@ function Navbar_loggedin() {
         <button
           type="button"
           className="btn mx-2"
-          style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}
+          style={{
+            borderRadius: "1.4rem",
+            backgroundColor: "#5c11ac",
+            color: "#efbdf4",
+            fontWeight: "bold",
+          }}
           onClick={handleClick}
         >
           Prediction Game
@@ -80,7 +99,12 @@ function Navbar_loggedin() {
           type="button"
           className="btn mx-2"
           onClick={handleClickBuy}
-          style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}
+          style={{
+            borderRadius: "1.4rem",
+            backgroundColor: "#5c11ac",
+            color: "#efbdf4",
+            fontWeight: "bold",
+          }}
         >
           Buy
         </button>
@@ -90,13 +114,28 @@ function Navbar_loggedin() {
           type="button"
           className="btn mx-2"
           onClick={handleClickSell}
-          style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}
+          style={{
+            borderRadius: "1.4rem",
+            backgroundColor: "#5c11ac",
+            color: "#efbdf4",
+            fontWeight: "bold",
+          }}
         >
           Sell
         </button>
       </div>
       <div className="navbar-sign">
-        <button type="button" className="btn btn-primary mx-2" onClick={handleClickDashboard} style={{borderRadius:'1.4rem',backgroundColor:'#5c11ac',color:'#efbdf4',fontWeight:'bold'}}>
+        <button
+          type="button"
+          className="btn btn-primary mx-2"
+          onClick={handleClickDashboard}
+          style={{
+            borderRadius: "1.4rem",
+            backgroundColor: "#5c11ac",
+            color: "#efbdf4",
+            fontWeight: "bold",
+          }}
+        >
           Dashboard
         </button>
         <div className="navbar-sign">
