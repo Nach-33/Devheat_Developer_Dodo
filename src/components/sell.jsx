@@ -112,7 +112,7 @@ function Sell() {
       console.log("camein");
       setCanBuy(1);
     } else {
-      setCanBuy(0);
+      setCanBuy(1);
     }
   }, []);
 
@@ -165,7 +165,7 @@ function Sell() {
               <input
                 type="text"
                 className="m-2 rounded-pill p-3"
-                placeholder="Quantity"
+                placeholder="Stock Name"
                 onChange={handleChangeSymbol}
                 style={{
                   width: "10vw",
@@ -193,28 +193,28 @@ function Sell() {
             <h2 className="m-3">Stock Purchased Price: {purchasePrice}</h2>
             <h2 className="m-3">Stock Current Price: {price}</h2>
             <h2 className="m-3">Profit: {Math.round((price-purchasePrice)*quantity)}</h2>
-            <h2 className="m-3 pb-4">Quantity: {}</h2>
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex pb-4">
+            <h2 className="m-3">Quantity: {}</h2>
               <input
                 type="text"
-                className="m-2 rounded-pill p-3"
+                className="m-2 rounded-pill p-3 ms-5 w-25"
                 placeholder="Quantity"
                 onChange={handleChangeQuantity}
                 style={{
                   width: "10vw",
                   borderRadius: "3rem",
-                  height: "4rem",
+                  height: "3.4rem",
                   fontSize: "2rem",
                   textAlign: "center",
                   marginLeft: "20vw",
                 }}
               />
+            </div>
               <center>
                 <button
                   className="btn btn-danger"
                   style={{
-                    height: "6vh",
-                    width: "16vw",
+                    width: "13vw",
                     borderRadius: "2rem",
                     fontSize: "1.9rem",
                     alignItems: "center",
@@ -224,7 +224,6 @@ function Sell() {
                   Sell
                 </button>
               </center>
-            </div>
           </div>
           <div className="d-flex justify-content-end col-md-6">
             <img src={Image} alt="" style={{ width: "33vw" }} />

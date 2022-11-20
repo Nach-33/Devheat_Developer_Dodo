@@ -77,7 +77,7 @@ function Dashboard() {
           <h2 className="text-center">{element.stock}</h2>
         </div>
         <div className="col-md-3">
-          <h2 className="text-center">{element.trade}</h2>
+          <h2 className="text-center text-capitalize">{element.trade}</h2>
         </div>
         <div className="col-md-3">
           <h2 className="text-center">{element.qty}</h2>

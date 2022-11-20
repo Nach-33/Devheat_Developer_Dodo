@@ -162,8 +162,8 @@ function Apitest() {
       {data3 && (
         <center><section style={{border : '1px solid white', borderTopLeftRadius : '25px',borderTopRightRadius : '25px', width : '70vw', background:'radial-gradient(circle at 3% 25%, rgba(0, 40, 83, 1) 0%, rgba(4, 12, 24, 1) 25%)', padding : '2vh'}}>
           <div>
-            <center><p style={{color:'red', fontSize : '15px'}}>Note: Prediction game costs $50, correct guess gives reward of $25</p></center>
-            <center><p style={{color:'red', fontSize : '10px'}}>Will stock increase in future? Whats your prediction? Comment yes or no</p></center>
+            <center><p style={{color:'white', fontSize : '23px'}} className="fw-bold">The Prediction game costs $50, correct guess gives a reward of $75</p></center>
+            <center><p style={{color:'white', fontSize : '18px'}} className="fw-bold">Will the stock increase in future? What's your prediction?</p></center>
           </div>
         <div className="d-flex justify-content-center">
         
@@ -174,7 +174,7 @@ function Apitest() {
             <button
               type="button"
               className=" btn my-1 p-2 rounded-pill"
-              style={{width:'10rem',fontWeight:'bolder',fontSize:'1.5rem',padding:'1rem' ,backgroundColor:'#E5D9B6',color:'#285430'}}
+              style={{width:'10rem',fontWeight:'bolder',fontSize:'1.5rem',padding:'0.3rem' ,backgroundColor:'#E5D9B6',color:'#285430'}}
               onClick={getPrediction}
             >Predict</button>
         
@@ -209,7 +209,7 @@ function Apitest() {
               })}
             <button onClick={handleClickGraph} style={{borderRadius:'2rem',fontSize:'1.5rem',width:'20rem'}}>Check Graphical Data</button>
             {clicked && (
-              <div className="container mt-5">
+              <div className="container mt-3">
                 <Chart
                   width={"100%"}
                   height={450}

@@ -51,7 +51,7 @@ function Apitest() {
         body: JSON.stringify({
           stock: symbol,
           qty: Number(quantity),
-          price:Number(price),
+          price: Number(price),
         }),
       });
       const data = await response.json();
@@ -169,10 +169,13 @@ function Apitest() {
                     <h4 className="text-start m-5" style={{ fontSize: "2rem" }}>
                       Stock Price: {price}
                     </h4>
-                    <h4 className="text-start m-5" style={{ fontSize: "2rem" }}>
-                      Quantity:{" "}
-                    </h4>
-                    <div className="d-flex justify-content-center align-items-center">
+                    <div className="d-flex align-items-center">
+                      <h4
+                        className="text-start m-5"
+                        style={{ fontSize: "2rem" }}
+                      >
+                        Quantity:{" "}
+                      </h4>
                       <input
                         type="text"
                         className="m-2 rounded-pill p-3"
@@ -187,23 +190,21 @@ function Apitest() {
                           marginLeft: "20vw",
                         }}
                       />
-                      <center>
-                        <button
-                          className="btn btn-outline-success "
-                          style={{
-                            borderRadius: "2rem",
-                            width: "24rem",
-                            fontWeight: "bolder",
-                            fontSize: "1.6rem",
-                            marginBottom: "3vh",
-                            marginTop: "20px",
-                          }}
-                          onClick={buyStock}
-                        >
-                          Buy
-                        </button>
-                      </center>
                     </div>
+                    <center>
+                      <button
+                        className="btn btn-success "
+                        style={{
+                          width: "13vw",
+                          borderRadius: "2rem",
+                          fontSize: "1.9rem",
+                          alignItems: "center",
+                        }}
+                        onClick={buyStock}
+                      >
+                        Buy
+                      </button>
+                    </center>
                   </div>
                   <div className="md-5" style={{ marginLeft: "15vw" }}>
                     <img src={Image} alt="" style={{ height: "60vh" }} />
