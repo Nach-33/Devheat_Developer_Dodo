@@ -5,7 +5,7 @@
 <br/>
 
 <p align="center">
-<img src="./client/src/assets/images/health.svg" width="150"/>
+<img src="./snapshots/img (6).png" width="150"/>
 </p>
 
 # Problems Solved
@@ -128,6 +128,6 @@ Python (Machine Learning),Numpy, Pandas, Sklearn, React.js, Node-JS, HTML, CSS,T
 
 ## Developers
 
-## [Nachiket](https://github.com/Nach-33), [Rutwik](https://github.com/rutwik2514), [Shrey](https://github.com/shreyshah-06), [Padam]()
+## [Nachiket](https://github.com/Nach-33), [Rutwik](https://github.com/rutwik2514), [Shrey](https://github.com/shreyshah-06), [Padam](https://github.com/PadamMantry04)
 
 <br/>
