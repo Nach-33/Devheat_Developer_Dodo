@@ -1,6 +1,7 @@
 # Developer Dodo
 
 # Topic : FinETech
+# Contents of The Repo : Frontend Branch and Backend Branch
 
 <br/>
 
