@@ -44,7 +44,8 @@ function Navbar_loggedin() {
     getData();
   }, []);
   if (user.username == "") {
-    window.location.href = "/login";
+    // window.location.href = "/login";
+    return (<h1 className="text-danger text-center m-3">Not Authorized</h1>)
   }
   return (
     <div className="navbar">
