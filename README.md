@@ -1,70 +1,133 @@
-# Getting Started with Create React App
+# Developer Dodo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Topic : FinETech
 
-## Available Scripts
+<br/>
 
-In the project directory, you can run:
+<p align="center">
+<img src="./client/src/assets/images/health.svg" width="150"/>
+</p>
 
-### `npm start`
+# Problems Solved
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+- Share market investing is often encouraged nowadays, since not only does it beat inflation but seldom also brings exponential returns.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Investing however can be a tedious task for many beginners since share trading platforms can often be overwhelming.
 
-### `npm test`
+- This in turn restricts users, for it presents the risk of putting people's savings at stake.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- This is where paper trading or demo trading comes in to help.
 
-### `npm run build`
+- Using a demo account allows first time traders to experience and trade with an account that looks and acts similarly to the real online trading accounts traders use. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Users can also take the assistance of our trained AI, which can make calculated predictions based on the previous performance of a stock.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+<p align="center">
+<img src="./images/six.png"/>
+</p>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Feature 1 : Fully Secured
 
-### `npm run eject`
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Confidential User data such as passwords, transaction history and call puts are saved securely on our private server databases.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- User profile info is locked and is accessible only after sign in.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- User call puts are securely transferred to the market ensuring authentic results.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```
 
-## Learn More
+# Feature 2 : Real time stock updates
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Users can tracks shares of any company live time. 
 
-### Code Splitting
+- Users can see live time share performance in form of candle-sticks to get the feel of a actual trading platform.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Users can track live market conditions.
 
-### Analyzing the Bundle Size
+ ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+# Feature 3 : Stock Analysis
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
 
-### Advanced Configuration
+- Users can analyse and pick stocks meticulously with the help of our stock profiles. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Stock profiling is done based on various parameters res such as previous calls, market volume and caps (upper or lower).
 
-### Deployment
+- Stocks are listed to give an idea to users about overall market conditions (bearish/bullish trends).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```
 
-### `npm run build` fails to minify
+# Feature 4 : AI Prediction Model
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+
+- Our trained AI is backed up with statistical data streams of 20+ years.
+
+- Users are given fixed credits on registration, which they can further exchange for a calculated prediction of the share price ahead of its listing. 
+
+- The AI model uses previous performance of a stock in the market to predict its upcoming trend.
+
+```
+
+
+<p align="center">
+<img src="./images/two.jpeg"/>
+<br/>
+<img src="./images/three.jpeg"/>
+</p>
+
+<p align="center">
+<img src="./images/five.jpeg"/>
+</p>
+
+
+<p align="center">
+<img src="./images/one.png"/>
+</p>
+
+
+# About This App
+
+```
+- User can register using their Email accounts.
+
+- Users can learn how to trade through reading the trends through the chart.
+
+- We have included a small predictor of the trend of the next day for the Users using ML model and are rewarding users with a certain amount(fake).
+
+- The website is fully encrypted.
+
+
+```
+
+###
+
+## 🛠 Tech Used ||
+
+```bash
+Python (Machine Learning),Numpy, Pandas, Sklearn, React.js, Node-JS, HTML, CSS,TensorFlow,MongoDB,ExpressJs,NodeJs
+```
+
+## Problems faced
+
+```
+- We didn't have any knowledge about ML but we tried to learn as much we could and implemented it.
+
+- Plotting the candlestick chart on the page.
+
+- Finding the right API's to get the results.
+```
+
+## Developers
+
+## [Nachiket](https://github.com/Nach-33), [Rutwik](https://github.com/rutwik2514), [Shrey](https://github.com/shreyshah-06), [Padam]()
+
+<br/>
