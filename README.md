@@ -5,7 +5,7 @@
 <br/>
 
 <p align="center">
-<img src="./snapshots/img (6).png" width="150"/>
+<img src="./snapshots/img (6).png" width="720"/>
 </p>
 
 # Problems Solved
@@ -25,22 +25,11 @@
 
 ```
 <p align="center">
-<img src="./images/six.png"/>
+<img src="./snapshots/img (2).png" width="720"/>
 </p>
 
-# Feature 1 : Fully Secured
 
-```
-
-- Confidential User data such as passwords, transaction history and call puts are saved securely on our private server databases.
-
-- User profile info is locked and is accessible only after sign in.
-
-- User call puts are securely transferred to the market ensuring authentic results.
-
-```
-
-# Feature 2 : Real time stock updates
+# Feature 1 : Real time stock updates
 
 ```
 
@@ -52,6 +41,17 @@
 
  ```
 
+# Feature 2 : AI Prediction Model
+
+```
+
+- Our trained AI is backed up with statistical data streams of 20+ years.
+
+- Users are given fixed credits on registration, which they can further exchange for a calculated prediction of the share price ahead of its listing. 
+
+- The AI model uses previous performance of a stock in the market to predict its upcoming trend.
+
+```
 
 # Feature 3 : Stock Analysis
 
@@ -65,32 +65,32 @@
 
 ```
 
-# Feature 4 : AI Prediction Model
+
+# Feature 4 : Fully Secured
 
 ```
 
-- Our trained AI is backed up with statistical data streams of 20+ years.
+- Confidential User data such as passwords, transaction history and call puts are saved securely on our private server databases.
 
-- Users are given fixed credits on registration, which they can further exchange for a calculated prediction of the share price ahead of its listing. 
+- User profile info is locked and is accessible only after sign in.
 
-- The AI model uses previous performance of a stock in the market to predict its upcoming trend.
+- User call puts are securely transferred to the market ensuring authentic results.
 
 ```
-
 
 <p align="center">
-<img src="./images/two.jpeg"/>
+<img src="./snapshots/img (1).png" width="720"/>
 <br/>
-<img src="./images/three.jpeg"/>
+<img src="./snapshots/img (3).png" width="720"/>
 </p>
 
 <p align="center">
-<img src="./images/five.jpeg"/>
+<img src="./snapshots/img (5).png" width="720"/>
 </p>
 
 
 <p align="center">
-<img src="./images/one.png"/>
+<img src="./snapshots/img (4).png" width="720"/>
 </p>
 
 
@@ -113,7 +113,7 @@
 ## 🛠 Tech Used ||
 
 ```bash
-Python (Machine Learning),Numpy, Pandas, Sklearn, React.js, Node-JS, HTML, CSS,TensorFlow,MongoDB,ExpressJs,NodeJs
+Python (Machine Learning), TensorFlow, Numpy, Pandas, Sklearn, HTML, CSS, React.js, NodeJS,MongoDB, ExpressJs, JWT
 ```
 
 ## Problems faced
@@ -123,7 +123,7 @@ Python (Machine Learning),Numpy, Pandas, Sklearn, React.js, Node-JS, HTML, CSS,T
 
 - Plotting the candlestick chart on the page.
 
-- Finding the right API's to get the results.
+- Finding the right API's to get the desired results.
 ```
 
 ## Developers
