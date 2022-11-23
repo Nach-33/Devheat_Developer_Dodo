@@ -61,7 +61,7 @@ function Dashboard() {
           <h2 className="text-center">{element.qty}</h2>
         </div>
         <div className="col-md-4">
-          <h2 className="text-center">{element.price}</h2>
+          <h2 className="text-center">${element.price}</h2>
         </div>
       </div>
     );
@@ -83,7 +83,7 @@ function Dashboard() {
           <h2 className="text-center">{element.qty}</h2>
         </div>
         <div className="col-md-3">
-          <h2 className="text-center">{element.price}</h2>
+          <h2 className="text-center">${element.price}</h2>
         </div>
       </div>
     );
@@ -138,8 +138,8 @@ function Dashboard() {
                   }}
                 ><img src={UserImg} alt="" /></div>
                 <div className="col-7">
-                  <h2 className="fw-bold"> Hello,</h2>
-                  <h2 className="fw-bold">{user.username}</h2>
+                  <h2 className="fw-bold ps-1"> Hello,</h2>
+                  <h2 className="fw-bold ps-1">{user.username}</h2>
                 </div>
               </div>
               <div
@@ -155,7 +155,7 @@ function Dashboard() {
                   }}
                 ><img src={ProfitImg} alt="" /></div>
                 <div className="col-7 ">
-                  <h2 className="fw-bold">Profit</h2>
+                  <h2 className="fw-bold">Profit :</h2>
                   <h2>${Math.round(totalProfit)}</h2>
                 </div>
               </div>
@@ -172,8 +172,8 @@ function Dashboard() {
                   }}
                 ><img src={WalletImg} alt="" /></div>
                 <div className="col-7">
-                  <h2 className="fw-bold">Balance</h2>
-                  <h2>${Math.round(user.balance)}</h2>
+                  <h2 className="fw-bold ">Balance :</h2>
+                  <h2 className="">${Math.round(user.balance)}</h2>
                 </div>
               </div>
             </div>
@@ -215,36 +215,36 @@ function Dashboard() {
               </div>
               <div className="col-md-4 card" style={{ borderRadius: "1.3rem",backgroundColor: "rgb(1, 22, 44)" }}>
                 <div
-                  className="d-flex card flex-row justify-content-around p-1 m-1 "
-                  style={{ backgroundColor: "rgb(1, 22, 44)" }}
+                  className="d-flex card flex-row justify-content-around"
+                  style={{ backgroundColor: "rgb(1, 22, 44)",paddingTop:'1.25rem' }}
                 >
                   <div
                     style={{
-                      color:'wheat'
+                      color:'wheat',
                     }}
                   >
-                    <h1 className="fw-bold">Stock</h1>
+                    <h1 className="fw-bold"style={{fontSize:'2.3rem'}}>Stock</h1>
                   </div>
                   <div
                     style={{
                       color:'wheat'
                     }}
                   >
-                    <h1 className="fw-bold">Trade</h1>
+                    <h1 className="fw-bold"  style={{fontSize:'2.3rem'}}>Trade</h1>
                   </div>
                   <div
                     style={{
                       color:'wheat'
                     }}
                   >
-                    <h1 className="fw-bold">Qty</h1>
+                    <h1 className="fw-bold" style={{fontSize:'2.3rem'}}>Qty</h1>
                   </div>
                   <div
                     style={{
                       color:'wheat'
                     }}
                   >
-                    <h1 className="fw-bold">Price</h1>
+                    <h1 className="fw-bold" style={{fontSize:'2.3rem'}}>Price</h1>
                   </div>
                 </div>
                 {historyRender}
