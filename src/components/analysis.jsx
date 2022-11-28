@@ -6,19 +6,14 @@ function Apitest() {
   //***********************************STATES******************************* */
   const [symbol, setsymbol] = React.useState("");
   const [data, setData] = React.useState(false);
-  const [data2, setData2] = React.useState();
-  const [data3, setData3] = React.useState("");
-  const [xaxis, setXaxis] = React.useState([]);
-  const [open, setOpen] = React.useState([]);
-  const [high, setHigh] = React.useState([]);
-  const [low, setLow] = React.useState([]);
-  const [close, setClose] = React.useState([]);
-  const [volume, setVolume] = React.useState([]);
+  const [status, setStatus] = React.useState("");
   const [clicked, setClicked] = React.useState("");
   const [prediction, setPrediction] = React.useState(false);
   const [graph, setgraph] = React.useState([
     ["day", "low", "open", "close", "high"],
   ]);
+
+  
   //*************graph properties******************* */
   var options = {
     legend: "none",
@@ -40,7 +35,7 @@ function Apitest() {
     const { value } = e.target;
     setsymbol(value);
   }
-  async function handleClick2(e) {
+  async function handleClick(e) {
     const response = await fetch(
       `https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${symbol}&interval=5min&apikey=JBQTJBWV8LLJYL6Y`
     )
@@ -50,7 +45,6 @@ function Apitest() {
   }
   function handleClickGraph() {
     setClicked("hello");
-
     class GoogleChart extends Component {
       constructor(props) {
         super(props);
@@ -59,11 +53,9 @@ function Apitest() {
   }
   function handleCheckbox1() {
     setPrediction(true);
-    console.log(prediction);
   }
   function handleCheckbox2() {
     setPrediction(false);
-    console.log(prediction);
   }
   const token = localStorage.getItem("user");
   const getPrediction = async () => {
@@ -99,46 +91,40 @@ function Apitest() {
   };
   //*****************************USEEFFECTS******************************************* */
 
-  React.useEffect(() => {
-    setData2(data["Time Series (5min)"]);
-  }, [data]);
+
 
   //converting data into format required for candlestick graph
   React.useEffect(() => {
-    for (var i in data2) {
-      setData3(data2[i]);
+    for (var i in data["Time Series (5min)"]) {
+      setStatus(data["Time Series (5min)"][i]);
       break;
     }
-    for (var i in data2) {
-      for (var j in data2[i]) {
+    for (var i in data["Time Series (5min)"]) {
+      const temp = [i];
+      for (var j in data["Time Series (5min)"][i]) {
         if (j == "1. open") {
-          open.push(data2[i][j]);
+          temp.push(parseFloat(data["Time Series (5min)"][i][j]))
         } else if (j == "2. high") {
-          high.push(data2[i][j]);
+          temp.push(parseFloat(data["Time Series (5min)"][i][j]))
         } else if (j == "3. low") {
-          low.push(data2[i][j]);
+          temp.push(parseFloat(data["Time Series (5min)"][i][j]))
         } else if (j == "4. close") {
-          close.push(data2[i][j]);
-        } else {
-          volume.push(data2[i][j]);
-        }
+          temp.push(parseFloat(data["Time Series (5min)"][i][j]))
+        } 
       }
+      
+      console.log('hi', temp);
+      const temp2 = [];
+      temp2.push(temp[0]);
+      temp2.push(temp[3]);
+      temp2.push(temp[1]);
+      temp2.push(temp[4]);
+      temp2.push(temp[2]);
+      graph.push(temp2);
+      console.log('graph', graph);
     }
-    open.reverse();
-    high.reverse();
-    low.reverse();
-    close.reverse();
-    xaxis.reverse();
-    for (let i = 0; i < open.length; i++) {
-      graph.push([
-        xaxis[i],
-        parseFloat(low[i]),
-        parseFloat(open[i]),
-        parseFloat(close[i]),
-        parseFloat(high[i]),
-      ]);
-    }
-  }, [data2]);
+    console.log(graph);
+  }, [data["Time Series (5min)"]]);
 
   return (
     <>
@@ -184,14 +170,14 @@ function Apitest() {
               type="button"
               className=" btn btn-outline-primary my-1 p-2 rounded-pill"
               style={{ width: "10rem", fontWeight: "bold", fontSize: "1.5rem" }}
-              onClick={handleClick2}
+              onClick={handleClick}
             >
               Search
             </button>
           </center>
         </div>
       </center>
-      {data3 && (
+      {status && (
         <center>
           <section
             style={{
@@ -269,7 +255,7 @@ function Apitest() {
         </center>
       )}
 
-      {data3 && (
+      {status && (
         <center>
           <div
             className="shadow p-3 mb-5"
@@ -290,11 +276,11 @@ function Apitest() {
               {" "}
               Previous one day status :
             </h3>
-            {data3 &&
-              Object.keys(data3).map(function (key) {
+            {status &&
+              Object.keys(status).map(function (key) {
                 return (
                   <p className="text-capitalize" style={{ color: "white" }}>
-                    {key} : {data3[key]}
+                    {key} : {status[key]}
                   </p>
                 );
               })}
