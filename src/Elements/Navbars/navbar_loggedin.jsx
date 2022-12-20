@@ -72,7 +72,7 @@ function Navbar_loggedin() {
           className=" btn mx-2"
           style={{
             borderRadius: "1.4rem",
-            backgroundColor: "#5c11ac",
+            // backgroundColor: "#5c11ac",
             color: "#efbdf4",
             fontWeight: "bold",
           }}
@@ -86,7 +86,7 @@ function Navbar_loggedin() {
           className="btn mx-2"
           style={{
             borderRadius: "1.4rem",
-            backgroundColor: "#5c11ac",
+            // backgroundColor: "#5c11ac",
             color: "#efbdf4",
             fontWeight: "bold",
           }}
@@ -102,7 +102,7 @@ function Navbar_loggedin() {
           onClick={handleClickBuy}
           style={{
             borderRadius: "1.4rem",
-            backgroundColor: "#5c11ac",
+            // backgroundColor: "#5c11ac",
             color: "#efbdf4",
             fontWeight: "bold",
           }}
@@ -117,7 +117,7 @@ function Navbar_loggedin() {
           onClick={handleClickSell}
           style={{
             borderRadius: "1.4rem",
-            backgroundColor: "#5c11ac",
+            // backgroundColor: "#5c11ac",
             color: "#efbdf4",
             fontWeight: "bold",
           }}
@@ -128,11 +128,11 @@ function Navbar_loggedin() {
       <div className="navbar-sign">
         <button
           type="button"
-          className="btn btn-primary mx-2"
+          className="btn mx-2"
           onClick={handleClickDashboard}
           style={{
             borderRadius: "1.4rem",
-            backgroundColor: "#5c11ac",
+            // backgroundColor: "#5c11ac",
             color: "#efbdf4",
             fontWeight: "bold",
           }}
