@@ -18,7 +18,7 @@ function Apitest() {
   const remainder = 5 - (moment().minutes() % 5);
   const dateTime = moment(startdate)
     .add(remainder, "minutes")
-    .format("YYYY-MM-DD 12:30:00");
+    .format("YYYY-MM-DD HH:mm:00");
   console.log("date", dateTime);
   //**********************************FUNCTIONS****************************** */
   //sets user input in symbol
@@ -69,7 +69,7 @@ function Apitest() {
       console.log("camein");
       setCanBuy(1);
     } else {
-      setCanBuy(1);
+      setCanBuy(0);
     }
   }, []);
 
