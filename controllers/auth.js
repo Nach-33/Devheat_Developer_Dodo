@@ -6,7 +6,7 @@ const Login = async (req, res) => {
   try {
     const {username, password}=req.body;
     const user = await User.findOne({username});
-    if (!user) {
+    if (!user){
       return res.status(400).send({ status: "not ok", msg: "user not found" });
     }
     const match= await bcrypt.compare(password,user.password);
