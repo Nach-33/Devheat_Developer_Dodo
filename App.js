@@ -17,9 +17,6 @@ app.use("/api/v1", authRoutes);
 app.use("/api/v1", userDataRoutes);
 app.use("/api/v1", tradeRoutes);
 app.use("/api/v1", predictionRoutes);
-
-// let ans="";
-
 const serverStart = async () => {
   try {
     await dbconnect(process.env.MONGO_URI);
